@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wealth Creation | WAY2GRO Financial Services</title>
+  <meta name="description" content="Build a disciplined long-term wealth creation strategy with WAY2GRO Financial Services." />
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body { overflow-x: hidden; }
+    .wc-page { background:#fff; color:var(--navy); }
+    .wc-hero { padding:126px 0 58px; background:#fff; }
+    .wc-hero-grid { display:grid; grid-template-columns:.92fr 1.08fr; gap:58px; align-items:center; }
+    .wc-kicker { color:var(--green); font-weight:900; letter-spacing:.16em; text-transform:uppercase; font-size:13px; margin-bottom:18px; }
+    .wc-breadcrumb { display:inline-flex; padding:8px 14px; border-radius:999px; background:rgba(30,74,168,.06); color:#64748b; font-size:13px; font-weight:800; margin-bottom:18px; }
+    .wc-hero h1 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(44px,5.2vw,72px); line-height:1.04; letter-spacing:-.06em; margin:0 0 24px; }
+    .wc-hero p { color:#64748b; font-size:18px; line-height:1.85; max-width:650px; margin-bottom:30px; }
+    .wc-actions { display:flex; gap:14px; flex-wrap:wrap; }
+    .wc-image { position:relative; border-radius:32px; overflow:hidden; box-shadow:0 24px 70px rgba(8,36,92,.14); height:420px; background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .wc-image img { width:100%; height:100%; object-fit:cover; display:block; }
+    .wc-image:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.32)); }
+    .wc-img-tag { position:absolute; left:24px; bottom:24px; z-index:2; padding:18px 22px; border-radius:22px; color:#fff; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(14px); }
+    .wc-img-tag span { display:block; color:#9effc3; font-weight:900; margin-bottom:6px; }
+    .wc-img-tag strong { display:block; font-size:24px; letter-spacing:-.03em; }
+    .wc-stack-section { padding:38px 0 76px; background:linear-gradient(180deg,#fff,#f7fbff); }
+    .wc-stack { display:grid; gap:28px; }
+    .wc-panel { position:sticky; top:92px; display:grid; grid-template-columns:.92fr 1.08fr; gap:30px; align-items:center; min-height:420px; padding:22px; border-radius:34px; background:rgba(255,255,255,.98); border:1px solid rgba(30,74,168,.08); box-shadow:0 24px 72px rgba(8,36,92,.12); overflow:hidden; }
+    .wc-panel:nth-child(1){z-index:3}.wc-panel:nth-child(2){z-index:4}.wc-panel:nth-child(3){z-index:5}.wc-panel:nth-child(4){z-index:6}
+    .wc-panel:nth-child(even){ grid-template-columns:1.08fr .92fr; }
+    .wc-panel:nth-child(even) .wc-copy{ order:2; }
+    .wc-panel:nth-child(even) .wc-panel-img{ order:1; }
+    .wc-copy { padding:20px 26px; }
+    .wc-count { width:42px; height:42px; border-radius:14px; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,var(--brand-blue),var(--green)); font-size:13px; font-weight:900; margin-bottom:16px; }
+    .wc-copy h2 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(28px,3vw,42px); line-height:1.08; letter-spacing:-.045em; margin:0 0 14px; }
+    .wc-copy p { color:#5f6b7a; font-size:15.5px; line-height:1.72; margin-bottom:18px; }
+    .wc-bullets { display:grid; gap:8px; }
+    .wc-bullets div { display:flex; gap:10px; color:#334155; font-size:14.5px; font-weight:650; line-height:1.45; }
+    .wc-bullets div:before { content:"✓"; color:var(--green); font-weight:900; }
+    .wc-panel-img { position:relative; height:345px; border-radius:28px; overflow:hidden; box-shadow:0 18px 44px rgba(8,36,92,.12); background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .wc-panel-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .wc-panel-img:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.18)); }
+    .wc-floating-tag { position:absolute; left:22px; bottom:22px; z-index:2; padding:12px 16px; border-radius:999px; color:#fff; font-size:13px; font-weight:900; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.25); backdrop-filter:blur(14px); }
+    .wc-faq { background:#fff; }
+    .faq-plus-symbol { width:34px; height:34px; min-width:34px; border-radius:50%; display:grid; place-items:center; background:rgba(11,164,75,.08); border:1px solid rgba(11,164,75,.12); color:var(--green); font-size:23px; font-weight:700; line-height:1; transition:.28s ease; }
+    .faq-item.active .faq-plus-symbol { transform:rotate(45deg); background:var(--green); color:#fff; }
+    @media(max-width:1024px){ .wc-hero-grid,.wc-panel,.wc-panel:nth-child(even){ grid-template-columns:1fr; } .wc-panel{ position:relative; top:auto; } .wc-panel:nth-child(even) .wc-copy,.wc-panel:nth-child(even) .wc-panel-img{ order:initial; } .wc-image{ height:330px; } .wc-panel-img{ height:300px; } }
+    @media(max-width:720px){ .wc-hero{ padding-top:106px; } .wc-panel{ padding:16px; border-radius:28px; } .wc-copy{ padding:18px; } .wc-image{ height:280px; } .wc-panel-img{ height:230px; border-radius:22px; } }
+  </style>
+</head>
+
+<body class="wc-page">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a class="brand-logo" href="../index.html">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services">
+    </a>
+
+    <div class="menu">
+      <a href="../index.html">Home</a>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="mutual-funds.html">Mutual Funds</a>
+          <a href="life-insurance.html">Life Insurance</a>
+          <a href="health-insurance.html">Health Insurance</a>
+          <a href="bonds.html">Fixed Income</a>
+          <a href="pms-aifs.html">PMS / AIFs</a>
+          <a href="real-estate.html">Real Estate</a>
+          <a href="loans.html">Loans</a>
+        </div>
+      </div>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="retirement.html">Retirement Saving</a>
+          <a href="child-future.html">Saving for Wealth Roadmap</a>
+          <a href="tax-saving.html">Tax Saving</a>
+          <a href="insurance.html">Protection</a>
+          <a href="wealth-solutions.html">Wealth Creation</a>
+          <a href="estate-creation.html">Estate Creation</a>
+          <a href="liquidity-creation.html">Liquidity Creation</a>
+        </div>
+      </div>
+      <a href="../index.html#why">Why WAY2GRO</a>
+      <a href="../index.html#team">Founders</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank" rel="noopener">
+        <i class="fa-solid fa-lock"></i> Client Login
+      </a>
+    </div>
+  </div>
+</nav>
+
+<a class="floating-whatsapp" href="../index.html#contact" aria-label="Contact WAY2GRO on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Talk to Advisor</span>
+</a>
+
+<main>
+  <section class="wc-hero">
+    <div class="container wc-hero-grid">
+      <div>
+        <div class="wc-breadcrumb">Home / Services / Wealth Creation</div>
+        <div class="wc-kicker">Wealth Creation</div>
+        <h1>Turn today's income into tomorrow's <span class="hero-highlight">wealth</span>.</h1>
+        <p>Building wealth is not about chasing the next hot investment. It's about having a disciplined strategy aligned to your goals, risk profile and time horizon.</p>
+        <div class="wc-actions">
+          <a class="btn btn-primary" href="../index.html#contact">Book Wealth Planning Session</a>
+          <a class="btn btn-outline" href="#service-faq">Read FAQs</a>
+        </div>
+      </div>
+
+      <div class="wc-image">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=85" alt="Family discussing wealth planning with advisor">
+        <div class="wc-img-tag"><span>Wealth Roadmap</span><strong>Plan • Invest • Grow</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wc-stack-section">
+    <div class="container">
+      <div class="wc-stack">
+
+        <article class="wc-panel">
+          <div class="wc-copy">
+            <div class="wc-count">01</div>
+            <h2>Create a goal-based wealth roadmap.</h2>
+            <p>Every financial goal deserves a strategy. Whether it's retirement, your child's education or financial independence, wealth creation starts with a clear roadmap.</p>
+            <div class="wc-bullets">
+              <div>Goal-wise investment planning</div>
+              <div>Time horizon mapping</div>
+              <div>Risk profile alignment</div>
+              <div>Structured wealth roadmap</div>
+            </div>
+          </div>
+          <div class="wc-panel-img">
+            <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=85" alt="Goal based wealth planning">
+            <div class="wc-floating-tag">Goal Based Planning</div>
+          </div>
+        </article>
+
+        <article class="wc-panel">
+          <div class="wc-copy">
+            <div class="wc-count">02</div>
+            <h2>Let compounding work in your favor.</h2>
+            <p>Time is one of the most powerful wealth creation tools. Consistent investing and patience can transform small contributions into significant wealth.</p>
+            <div class="wc-bullets">
+              <div>Long-term SIP strategy</div>
+              <div>Compounding-focused investing</div>
+              <div>Step-up contribution planning</div>
+              <div>Patience across market cycles</div>
+            </div>
+          </div>
+          <div class="wc-panel-img">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=85" alt="Investment growth and compounding">
+            <div class="wc-floating-tag">Power of Compounding</div>
+          </div>
+        </article>
+
+        <article class="wc-panel">
+          <div class="wc-copy">
+            <div class="wc-count">03</div>
+            <h2>Build diversified portfolios.</h2>
+            <p>A well-structured portfolio combines equity, debt, gold and alternative assets to balance growth and risk.</p>
+            <div class="wc-bullets">
+              <div>Asset allocation strategy</div>
+              <div>Equity and debt balance</div>
+              <div>Risk diversification</div>
+              <div>Periodic portfolio review</div>
+            </div>
+          </div>
+          <div class="wc-panel-img">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=85" alt="Diversified wealth portfolio">
+            <div class="wc-floating-tag">Portfolio Strategy</div>
+          </div>
+        </article>
+
+        <article class="wc-panel">
+          <div class="wc-copy">
+            <div class="wc-count">04</div>
+            <h2>Stay invested through market cycles.</h2>
+            <p>Successful investors focus on long-term goals instead of reacting to short-term market noise.</p>
+            <div class="wc-bullets">
+              <div>Behavioral investing guidance</div>
+              <div>Market cycle review</div>
+              <div>Long-term discipline</div>
+              <div>Goal progress tracking</div>
+            </div>
+          </div>
+          <div class="wc-panel-img">
+            <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=85" alt="Advisor reviewing wealth portfolio">
+            <div class="wc-floating-tag">Long-Term Discipline</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-premium wc-faq" id="service-faq">
+    <div class="container">
+      <div class="faq-head">
+        <div>
+          <div class="section-kicker">Wealth Roadmap FAQ</div>
+          <h2>Questions before you start your <span class="hero-highlight">wealth journey</span>.</h2>
+        </div>
+        <p>Simple answers to help you build wealth with discipline and clarity.</p>
+      </div>
+
+      <div class="faq-layout">
+        <div class="faq-left">
+          <div class="faq-badge"><i class="fa-solid fa-circle-check"></i> Wealth Planning</div>
+          <h3>Not sure how much to invest?</h3>
+          <p>Book a planning session and we’ll help define a wealth creation roadmap based on your goals and risk profile.</p>
+          <a href="../index.html#contact" class="faq-cta">Book Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question"><span>How much should I invest every month?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">It depends on your income, goals, investment horizon and risk comfort.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>How long should I stay invested?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Wealth creation generally works best over longer horizons with disciplined investing.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Should I invest only in equity?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">No. Diversification across asset classes is important to balance risk and return.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>How often should portfolios be reviewed?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">At least annually, or whenever major life events or goal changes occur.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-box">
+        <div>
+          <span>Ready to begin?</span>
+          <h2>Let's build a wealth creation strategy that grows with you.</h2>
+          <p>Create a disciplined investment roadmap aligned to your goals, time horizon and risk comfort.</p>
+        </div>
+        <a class="btn btn-primary" href="../index.html#contact">Book Wealth Creation Session</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="premium-footer service-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services. All rights reserved.</span>
+      <a href="../index.html">Back to Homepage</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var progress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', function () {
+    if (progress) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var percent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progress.style.width = percent + '%';
+    }
+  });
+
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) return;
+      var accordion = item.closest('.faq-accordion');
+      if (accordion) {
+        accordion.querySelectorAll('.faq-item').forEach(function (other) {
+          if (other !== item) other.classList.remove('active');
+        });
+      }
+      item.classList.toggle('active');
+    });
+  });
+
+  var floatingWhatsapp = document.querySelector('.floating-whatsapp');
+  var ctaTargets = document.querySelectorAll('.service-cta, footer');
+
+  if (floatingWhatsapp && ctaTargets.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      var hide = entries.some(function (entry) { return entry.isIntersecting; });
+      floatingWhatsapp.classList.toggle('is-hidden-near-cta', hide);
+    }, { threshold: 0.12 });
+
+    ctaTargets.forEach(function (target) { observer.observe(target); });
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fixed Income, Bonds & NCDs | WAY2GRO Financial Services</title>
+  <meta name="description" content="Explore corporate bonds, NCDs, government securities and fixed income options with WAY2GRO Financial Services." />
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body { overflow-x: hidden; }
+    .fi-page { background:#fff; color:var(--navy); }
+    .fi-hero { padding:126px 0 58px; background:#fff; }
+    .fi-hero-grid { display:grid; grid-template-columns:.92fr 1.08fr; gap:58px; align-items:center; }
+    .fi-kicker { color:var(--green); font-weight:900; letter-spacing:.16em; text-transform:uppercase; font-size:13px; margin-bottom:18px; }
+    .fi-breadcrumb { display:inline-flex; padding:8px 14px; border-radius:999px; background:rgba(30,74,168,.06); color:#64748b; font-size:13px; font-weight:800; margin-bottom:18px; }
+    .fi-hero h1 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(44px,5.2vw,72px); line-height:1.04; letter-spacing:-.06em; margin:0 0 24px; }
+    .fi-hero p { color:#64748b; font-size:18px; line-height:1.85; max-width:650px; margin-bottom:30px; }
+    .fi-actions { display:flex; gap:14px; flex-wrap:wrap; }
+    .fi-image { position:relative; border-radius:32px; overflow:hidden; box-shadow:0 24px 70px rgba(8,36,92,.14); height:420px; background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .fi-image img { width:100%; height:100%; object-fit:cover; display:block; }
+    .fi-image:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.32)); }
+    .fi-img-tag { position:absolute; left:24px; bottom:24px; z-index:2; padding:18px 22px; border-radius:22px; color:#fff; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(14px); }
+    .fi-img-tag span { display:block; color:#9effc3; font-weight:900; margin-bottom:6px; }
+    .fi-img-tag strong { display:block; font-size:24px; letter-spacing:-.03em; }
+    .fi-stack-section { padding:38px 0 76px; background:linear-gradient(180deg,#fff,#f7fbff); }
+    .fi-stack { display:grid; gap:28px; }
+    .fi-panel { position:sticky; top:92px; display:grid; grid-template-columns:.92fr 1.08fr; gap:30px; align-items:center; min-height:420px; padding:22px; border-radius:34px; background:rgba(255,255,255,.98); border:1px solid rgba(30,74,168,.08); box-shadow:0 24px 72px rgba(8,36,92,.12); overflow:hidden; }
+    .fi-panel:nth-child(1){z-index:3}.fi-panel:nth-child(2){z-index:4}.fi-panel:nth-child(3){z-index:5}.fi-panel:nth-child(4){z-index:6}
+    .fi-panel:nth-child(even){ grid-template-columns:1.08fr .92fr; }
+    .fi-panel:nth-child(even) .fi-copy{ order:2; }
+    .fi-panel:nth-child(even) .fi-panel-img{ order:1; }
+    .fi-copy { padding:20px 26px; }
+    .fi-count { width:42px; height:42px; border-radius:14px; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,var(--brand-blue),var(--green)); font-size:13px; font-weight:900; margin-bottom:16px; }
+    .fi-copy h2 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(28px,3vw,42px); line-height:1.08; letter-spacing:-.045em; margin:0 0 14px; }
+    .fi-copy p { color:#5f6b7a; font-size:15.5px; line-height:1.72; margin-bottom:18px; }
+    .fi-bullets { display:grid; gap:8px; }
+    .fi-bullets div { display:flex; gap:10px; color:#334155; font-size:14.5px; font-weight:650; line-height:1.45; }
+    .fi-bullets div:before { content:"✓"; color:var(--green); font-weight:900; }
+    .fi-panel-img { position:relative; height:345px; border-radius:28px; overflow:hidden; box-shadow:0 18px 44px rgba(8,36,92,.12); background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .fi-panel-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .fi-panel-img:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.18)); }
+    .fi-floating-tag { position:absolute; left:22px; bottom:22px; z-index:2; padding:12px 16px; border-radius:999px; color:#fff; font-size:13px; font-weight:900; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.25); backdrop-filter:blur(14px); }
+    .fi-faq { background:#fff; }
+    .faq-plus-symbol { width:34px; height:34px; min-width:34px; border-radius:50%; display:grid; place-items:center; background:rgba(11,164,75,.08); border:1px solid rgba(11,164,75,.12); color:var(--green); font-size:23px; font-weight:700; line-height:1; transition:.28s ease; }
+    .faq-item.active .faq-plus-symbol { transform:rotate(45deg); background:var(--green); color:#fff; }
+    @media(max-width:1024px){ .fi-hero-grid,.fi-panel,.fi-panel:nth-child(even){ grid-template-columns:1fr; } .fi-panel{ position:relative; top:auto; } .fi-panel:nth-child(even) .fi-copy,.fi-panel:nth-child(even) .fi-panel-img{ order:initial; } .fi-image{ height:330px; } .fi-panel-img{ height:300px; } }
+    @media(max-width:720px){ .fi-hero{ padding-top:106px; } .fi-panel{ padding:16px; border-radius:28px; } .fi-copy{ padding:18px; } .fi-image{ height:280px; } .fi-panel-img{ height:230px; border-radius:22px; } }
+  </style>
+</head>
+
+<body class="fi-page">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a class="brand-logo" href="../index.html">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services">
+    </a>
+
+    <div class="menu">
+      <a href="../index.html">Home</a>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="mutual-funds.html">Mutual Funds</a>
+          <a href="life-insurance.html">Life Insurance</a>
+          <a href="health-insurance.html">Health Insurance</a>
+          <a href="bonds.html">Fixed Income</a>
+          <a href="pms-aifs.html">PMS / AIFs</a>
+          <a href="real-estate.html">Real Estate</a>
+          <a href="loans.html">Loans</a>
+        </div>
+      </div>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="retirement.html">Retirement Saving</a>
+          <a href="child-future.html">Saving for Child Future</a>
+          <a href="tax-saving.html">Tax Saving</a>
+          <a href="insurance.html">Protection</a>
+          <a href="wealth-solutions.html">Wealth Creation</a>
+          <a href="estate-creation.html">Estate Creation</a>
+          <a href="liquidity-creation.html">Liquidity Creation</a>
+        </div>
+      </div>
+      <a href="../index.html#why">Why WAY2GRO</a>
+      <a href="../index.html#team">Founders</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank" rel="noopener">
+        <i class="fa-solid fa-lock"></i> Client Login
+      </a>
+    </div>
+  </div>
+</nav>
+
+<a class="floating-whatsapp" href="../index.html#contact" aria-label="Contact WAY2GRO on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Talk to Advisor</span>
+</a>
+
+<main>
+  <section class="fi-hero">
+    <div class="container fi-hero-grid">
+      <div>
+        <div class="fi-breadcrumb">Home / Products / Fixed Income</div>
+        <div class="fi-kicker">Fixed Income & Bonds</div>
+        <h1>Earn predictable income without taking <span class="hero-highlight">unnecessary risk</span>.</h1>
+        <p>Fixed income products like bonds, NCDs and corporate FDs can bring stability, predictable returns and balance to your overall portfolio.</p>
+        <div class="fi-actions">
+          <a class="btn btn-primary" href="../index.html#contact">Explore Fixed Income Options</a>
+          <a class="btn btn-outline" href="#service-faq">Read FAQs</a>
+        </div>
+      </div>
+
+      <div class="fi-image">
+        <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=1600&q=85" alt="Fixed income planning">
+        <div class="fi-img-tag"><span>Stable Income</span><strong>Bonds • NCDs • FDs</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fi-stack-section">
+    <div class="container">
+      <div class="fi-stack">
+
+        <article class="fi-panel">
+          <div class="fi-copy">
+            <div class="fi-count">01</div>
+            <h2>Build stability with corporate bonds and NCDs.</h2>
+            <p>Corporate bonds and NCDs can offer fixed income opportunities with defined tenures, coupon structures and risk-return profiles.</p>
+            <div class="fi-bullets">
+              <div>Corporate bond opportunities</div>
+              <div>NCD selection support</div>
+              <div>Issuer and rating review</div>
+              <div>Tenure and yield comparison</div>
+            </div>
+          </div>
+          <div class="fi-panel-img">
+            <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1600&q=85" alt="Corporate bonds and NCD planning">
+            <div class="fi-floating-tag">Corporate Bonds</div>
+          </div>
+        </article>
+
+        <article class="fi-panel">
+          <div class="fi-copy">
+            <div class="fi-count">02</div>
+            <h2>Balance your portfolio with safer income options.</h2>
+            <p>Government securities, high-quality deposits and other fixed income options can help reduce overall portfolio volatility.</p>
+            <div class="fi-bullets">
+              <div>Government securities discussion</div>
+              <div>AAA rated deposit options</div>
+              <div>Capital preservation focus</div>
+              <div>Portfolio diversification</div>
+            </div>
+          </div>
+          <div class="fi-panel-img">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=85" alt="Stable income options">
+            <div class="fi-floating-tag">Risk Balance</div>
+          </div>
+        </article>
+
+        <article class="fi-panel">
+          <div class="fi-copy">
+            <div class="fi-count">03</div>
+            <h2>Plan regular cash flow from your investments.</h2>
+            <p>Fixed income can be useful for investors who need periodic payouts, maturity planning or predictable income streams.</p>
+            <div class="fi-bullets">
+              <div>Coupon and payout planning</div>
+              <div>Maturity laddering</div>
+              <div>Income stream design</div>
+              <div>Liquidity consideration</div>
+            </div>
+          </div>
+          <div class="fi-panel-img">
+            <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=85" alt="Cash flow planning">
+            <div class="fi-floating-tag">Cash Flow</div>
+          </div>
+        </article>
+
+        <article class="fi-panel">
+          <div class="fi-copy">
+            <div class="fi-count">04</div>
+            <h2>Review risk before chasing higher yields.</h2>
+            <p>Higher yield may come with higher credit, liquidity or tenure risk. We help review suitability before investing.</p>
+            <div class="fi-bullets">
+              <div>Credit risk discussion</div>
+              <div>Liquidity and exit review</div>
+              <div>Portfolio suitability check</div>
+              <div>Risk-aware selection</div>
+            </div>
+          </div>
+          <div class="fi-panel-img">
+            <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1600&q=85" alt="Fixed income risk review">
+            <div class="fi-floating-tag">Risk Review</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-premium fi-faq" id="service-faq">
+    <div class="container">
+      <div class="faq-head">
+        <div>
+          <div class="section-kicker">Fixed Income FAQ</div>
+          <h2>Questions before you invest in <span class="hero-highlight">bonds</span>.</h2>
+        </div>
+        <p>Simple answers to help you understand fixed income options better.</p>
+      </div>
+
+      <div class="faq-layout">
+        <div class="faq-left">
+          <div class="faq-badge"><i class="fa-solid fa-circle-check"></i> Fixed Income Guidance</div>
+          <h3>Need stable income options?</h3>
+          <p>Book a consultation and we’ll help you evaluate suitable fixed income options based on your goals and risk comfort.</p>
+          <a href="../index.html#contact" class="faq-cta">Book Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question"><span>Are bonds risk-free?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">No. Bonds carry credit, liquidity and interest-rate risks. Proper issuer and rating evaluation is important.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>What is an NCD?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">A Non-Convertible Debenture is a fixed income instrument issued by companies to raise funds.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Who should consider fixed income?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Investors seeking stability, predictable income or portfolio diversification may consider fixed income options.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Why should I review rating and issuer quality?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Issuer quality and credit rating help understand the risk of repayment and suitability for your portfolio.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-box">
+        <div>
+          <span>Ready to begin?</span>
+          <h2>Let's add stability and income visibility to your portfolio.</h2>
+          <p>Explore bonds, NCDs and fixed income options with guidance focused on suitability, risk and cash-flow needs.</p>
+        </div>
+        <a class="btn btn-primary" href="../index.html#contact">Explore Fixed Income Options</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="premium-footer service-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services. All rights reserved.</span>
+      <a href="../index.html">Back to Homepage</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var progress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', function () {
+    if (progress) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var percent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progress.style.width = percent + '%';
+    }
+  });
+
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) return;
+      var accordion = item.closest('.faq-accordion');
+      if (accordion) {
+        accordion.querySelectorAll('.faq-item').forEach(function (other) {
+          if (other !== item) other.classList.remove('active');
+        });
+      }
+      item.classList.toggle('active');
+    });
+  });
+
+  var floatingWhatsapp = document.querySelector('.floating-whatsapp');
+  var ctaTargets = document.querySelectorAll('.service-cta, footer');
+
+  if (floatingWhatsapp && ctaTargets.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      var hide = entries.some(function (entry) { return entry.isIntersecting; });
+      floatingWhatsapp.classList.toggle('is-hidden-near-cta', hide);
+    }, { threshold: 0.12 });
+
+    ctaTargets.forEach(function (target) { observer.observe(target); });
+  }
+});
+</script>
+</body>
+</html>

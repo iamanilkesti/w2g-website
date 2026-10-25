@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Insurance Planning | WAY2GRO Financial Services</title>
+  <meta name="description" content="Protect your family from unexpected medical expenses with health insurance planning and policy review from WAY2GRO Financial Services." />
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body { overflow-x: hidden; }
+    .hi-page { background:#fff; color:var(--navy); }
+    .hi-hero { padding:126px 0 58px; background:#fff; }
+    .hi-hero-grid { display:grid; grid-template-columns:.92fr 1.08fr; gap:58px; align-items:center; }
+    .hi-kicker { color:var(--green); font-weight:900; letter-spacing:.16em; text-transform:uppercase; font-size:13px; margin-bottom:18px; }
+    .hi-breadcrumb { display:inline-flex; padding:8px 14px; border-radius:999px; background:rgba(30,74,168,.06); color:#64748b; font-size:13px; font-weight:800; margin-bottom:18px; }
+    .hi-hero h1 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(44px,5.2vw,72px); line-height:1.04; letter-spacing:-.06em; margin:0 0 24px; }
+    .hi-hero p { color:#64748b; font-size:18px; line-height:1.85; max-width:650px; margin-bottom:30px; }
+    .hi-actions { display:flex; gap:14px; flex-wrap:wrap; }
+    .hi-image { position:relative; border-radius:32px; overflow:hidden; box-shadow:0 24px 70px rgba(8,36,92,.14); height:420px; background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .hi-image img { width:100%; height:100%; object-fit:cover; display:block; }
+    .hi-image:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.32)); }
+    .hi-img-tag { position:absolute; left:24px; bottom:24px; z-index:2; padding:18px 22px; border-radius:22px; color:#fff; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(14px); }
+    .hi-img-tag span { display:block; color:#9effc3; font-weight:900; margin-bottom:6px; }
+    .hi-img-tag strong { display:block; font-size:24px; letter-spacing:-.03em; }
+    .hi-stack-section { padding:38px 0 76px; background:linear-gradient(180deg,#fff,#f7fbff); }
+    .hi-stack { display:grid; gap:28px; }
+    .hi-panel { position:sticky; top:92px; display:grid; grid-template-columns:.92fr 1.08fr; gap:30px; align-items:center; min-height:420px; padding:22px; border-radius:34px; background:rgba(255,255,255,.98); border:1px solid rgba(30,74,168,.08); box-shadow:0 24px 72px rgba(8,36,92,.12); overflow:hidden; }
+    .hi-panel:nth-child(1){z-index:3}.hi-panel:nth-child(2){z-index:4}.hi-panel:nth-child(3){z-index:5}.hi-panel:nth-child(4){z-index:6}
+    .hi-panel:nth-child(even){ grid-template-columns:1.08fr .92fr; }
+    .hi-panel:nth-child(even) .hi-copy{ order:2; }
+    .hi-panel:nth-child(even) .hi-panel-img{ order:1; }
+    .hi-copy { padding:20px 26px; }
+    .hi-count { width:42px; height:42px; border-radius:14px; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,var(--brand-blue),var(--green)); font-size:13px; font-weight:900; margin-bottom:16px; }
+    .hi-copy h2 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(28px,3vw,42px); line-height:1.08; letter-spacing:-.045em; margin:0 0 14px; }
+    .hi-copy p { color:#5f6b7a; font-size:15.5px; line-height:1.72; margin-bottom:18px; }
+    .hi-bullets { display:grid; gap:8px; }
+    .hi-bullets div { display:flex; gap:10px; color:#334155; font-size:14.5px; font-weight:650; line-height:1.45; }
+    .hi-bullets div:before { content:"✓"; color:var(--green); font-weight:900; }
+    .hi-panel-img { position:relative; height:345px; border-radius:28px; overflow:hidden; box-shadow:0 18px 44px rgba(8,36,92,.12); background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .hi-panel-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .hi-panel-img:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.18)); }
+    .hi-floating-tag { position:absolute; left:22px; bottom:22px; z-index:2; padding:12px 16px; border-radius:999px; color:#fff; font-size:13px; font-weight:900; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.25); backdrop-filter:blur(14px); }
+    .hi-faq { background:#fff; }
+    .faq-plus-symbol { width:34px; height:34px; min-width:34px; border-radius:50%; display:grid; place-items:center; background:rgba(11,164,75,.08); border:1px solid rgba(11,164,75,.12); color:var(--green); font-size:23px; font-weight:700; line-height:1; transition:.28s ease; }
+    .faq-item.active .faq-plus-symbol { transform:rotate(45deg); background:var(--green); color:#fff; }
+    @media(max-width:1024px){ .hi-hero-grid,.hi-panel,.hi-panel:nth-child(even){ grid-template-columns:1fr; } .hi-panel{ position:relative; top:auto; } .hi-panel:nth-child(even) .hi-copy,.hi-panel:nth-child(even) .hi-panel-img{ order:initial; } .hi-image{ height:330px; } .hi-panel-img{ height:300px; } }
+    @media(max-width:720px){ .hi-hero{ padding-top:106px; } .hi-panel{ padding:16px; border-radius:28px; } .hi-copy{ padding:18px; } .hi-image{ height:280px; } .hi-panel-img{ height:230px; border-radius:22px; } }
+  </style>
+</head>
+
+<body class="hi-page">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a class="brand-logo" href="../index.html">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services">
+    </a>
+
+    <div class="menu">
+      <a href="../index.html">Home</a>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="mutual-funds.html">Mutual Funds</a>
+          <a href="life-insurance.html">Life Insurance</a>
+          <a href="health-insurance.html">Health Insurance</a>
+          <a href="bonds.html">Fixed Income</a>
+          <a href="pms-aifs.html">PMS / AIFs</a>
+          <a href="real-estate.html">Real Estate</a>
+          <a href="loans.html">Loans</a>
+        </div>
+      </div>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="retirement.html">Retirement Saving</a>
+          <a href="child-future.html">Saving for Child Future</a>
+          <a href="tax-saving.html">Tax Saving</a>
+          <a href="insurance.html">Protection</a>
+          <a href="wealth-solutions.html">Wealth Creation</a>
+          <a href="estate-creation.html">Estate Creation</a>
+          <a href="liquidity-creation.html">Liquidity Creation</a>
+        </div>
+      </div>
+      <a href="../index.html#why">Why WAY2GRO</a>
+      <a href="../index.html#team">Founders</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank" rel="noopener">
+        <i class="fa-solid fa-lock"></i> Client Login
+      </a>
+    </div>
+  </div>
+</nav>
+
+<a class="floating-whatsapp" href="../index.html#contact" aria-label="Contact WAY2GRO on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Talk to Advisor</span>
+</a>
+
+<main>
+  <section class="hi-hero">
+    <div class="container hi-hero-grid">
+      <div>
+        <div class="hi-breadcrumb">Home / Products / Health Insurance</div>
+        <div class="hi-kicker">Health Insurance Planning</div>
+        <h1>Protect your savings from unexpected <span class="hero-highlight">medical expenses</span>.</h1>
+        <p>Health insurance helps your family handle medical uncertainty without disturbing long-term savings, investments and financial goals.</p>
+        <div class="hi-actions">
+          <a class="btn btn-primary" href="../index.html#contact">Book Free Health Insurance Review</a>
+          <a class="btn btn-outline" href="#service-faq">Read FAQs</a>
+        </div>
+      </div>
+
+      <div class="hi-image">
+        <img src="../assets/images/services/health-insurance/hero-health-family.jpg" alt="Family health insurance planning">
+        <div class="hi-img-tag"><span>Healthcare Protection</span><strong>Health Insurance Planning</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hi-stack-section">
+    <div class="container">
+      <div class="hi-stack">
+
+        <article class="hi-panel">
+          <div class="hi-copy">
+            <div class="hi-count">01</div>
+            <h2>Medical emergencies shouldn't become financial emergencies.</h2>
+            <p>Unexpected hospitalization or treatment costs can quickly impact savings. Health insurance helps reduce the financial stress during such moments.</p>
+            <div class="hi-bullets">
+              <div>Hospitalization cost protection</div>
+              <div>Emergency expense planning</div>
+              <div>Family financial stability</div>
+              <div>Savings protection</div>
+            </div>
+          </div>
+          <div class="hi-panel-img">
+            <img src="../assets/images/services/health-insurance/medical-emergency.jpg" alt="Medical emergency financial protection">
+            <div class="hi-floating-tag">Financial Protection</div>
+          </div>
+        </article>
+
+        <article class="hi-panel">
+          <div class="hi-copy">
+            <div class="hi-count">02</div>
+            <h2>Choose the right coverage for your family.</h2>
+            <p>Every family has different healthcare needs. We help evaluate individual cover, family floater options, sum insured and add-ons.</p>
+            <div class="hi-bullets">
+              <div>Family floater planning</div>
+              <div>Sum insured evaluation</div>
+              <div>Parents and dependents cover</div>
+              <div>Add-on benefit review</div>
+            </div>
+          </div>
+          <div class="hi-panel-img">
+            <img src="../assets/images/services/health-insurance/family-coverage.jpg" alt="Family health insurance coverage">
+            <div class="hi-floating-tag">Coverage Planning</div>
+          </div>
+        </article>
+
+        <article class="hi-panel">
+          <div class="hi-copy">
+            <div class="hi-count">03</div>
+            <h2>Understand what's covered and what's not.</h2>
+            <p>Policy terms matter. Waiting periods, exclusions, room rent limits and claim conditions should be understood before you need the policy.</p>
+            <div class="hi-bullets">
+              <div>Waiting period review</div>
+              <div>Exclusion understanding</div>
+              <div>Room rent and co-pay check</div>
+              <div>Claim condition clarity</div>
+            </div>
+          </div>
+          <div class="hi-panel-img">
+            <img src="../assets/images/services/health-insurance/policy-understanding.jpg" alt="Health insurance policy review">
+            <div class="hi-floating-tag">Policy Review</div>
+          </div>
+        </article>
+
+        <article class="hi-panel">
+          <div class="hi-copy">
+            <div class="hi-count">04</div>
+            <h2>Review your policy before you need it.</h2>
+            <p>Already have health insurance? We review existing policies to identify coverage gaps, overlaps and areas where protection can be improved.</p>
+            <div class="hi-bullets">
+              <div>Existing policy review</div>
+              <div>Coverage gap analysis</div>
+              <div>Top-up cover evaluation</div>
+              <div>Renewal and upgrade planning</div>
+            </div>
+          </div>
+          <div class="hi-panel-img">
+            <img src="../assets/images/services/health-insurance/policy-optimization.jpg" alt="Health insurance policy optimization">
+            <div class="hi-floating-tag">Policy Optimization</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-premium hi-faq" id="service-faq">
+    <div class="container">
+      <div class="faq-head">
+        <div>
+          <div class="section-kicker">Health Insurance FAQ</div>
+          <h2>Questions before you protect your <span class="hero-highlight">health</span>.</h2>
+        </div>
+        <p>Simple answers to help you understand health insurance better.</p>
+      </div>
+
+      <div class="faq-layout">
+        <div class="faq-left">
+          <div class="faq-badge"><i class="fa-solid fa-circle-check"></i> Health Protection</div>
+          <h3>Not sure what cover is enough?</h3>
+          <p>Book a free review and we’ll help you understand suitable coverage based on family size, age and medical needs.</p>
+          <a href="../index.html#contact" class="faq-cta">Book Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question"><span>Why do I need health insurance?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Health insurance helps protect your savings from unexpected hospitalization and medical expenses.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Is employer health insurance enough?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Employer insurance may be useful but can be limited and may not continue if employment changes.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>What is a family floater plan?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">A family floater plan covers multiple family members under one shared sum insured.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Should I buy a top-up plan?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Top-up plans can increase overall coverage at a lower cost, depending on your existing policy and needs.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-box">
+        <div>
+          <span>Ready to begin?</span>
+          <h2>Let's protect your family before medical care becomes urgent.</h2>
+          <p>Get a complimentary health insurance review and understand whether your current coverage is suitable for your family.</p>
+        </div>
+        <a class="btn btn-primary" href="../index.html#contact">Book Free Health Insurance Review</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="premium-footer service-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services. All rights reserved.</span>
+      <a href="../index.html">Back to Homepage</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var progress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', function () {
+    if (progress) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var percent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progress.style.width = percent + '%';
+    }
+  });
+
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) return;
+      var accordion = item.closest('.faq-accordion');
+      if (accordion) {
+        accordion.querySelectorAll('.faq-item').forEach(function (other) {
+          if (other !== item) other.classList.remove('active');
+        });
+      }
+      item.classList.toggle('active');
+    });
+  });
+
+  var floatingWhatsapp = document.querySelector('.floating-whatsapp');
+  var ctaTargets = document.querySelectorAll('.service-cta, footer');
+
+  if (floatingWhatsapp && ctaTargets.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      var hide = entries.some(function (entry) { return entry.isIntersecting; });
+      floatingWhatsapp.classList.toggle('is-hidden-near-cta', hide);
+    }, { threshold: 0.12 });
+
+    ctaTargets.forEach(function (target) { observer.observe(target); });
+  }
+});
+</script>
+</body>
+</html>

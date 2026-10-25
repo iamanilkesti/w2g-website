@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PMS / AIFs | WAY2GRO Financial Services</title>
+  <meta name="description" content="Explore advanced investment solutions like PMS and AIFs with WAY2GRO Financial Services." />
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body { overflow-x: hidden; }
+    .pa-page { background:#fff; color:var(--navy); }
+    .pa-hero { padding:126px 0 58px; background:#fff; }
+    .pa-hero-grid { display:grid; grid-template-columns:.92fr 1.08fr; gap:58px; align-items:center; }
+    .pa-kicker { color:var(--green); font-weight:900; letter-spacing:.16em; text-transform:uppercase; font-size:13px; margin-bottom:18px; }
+    .pa-breadcrumb { display:inline-flex; padding:8px 14px; border-radius:999px; background:rgba(30,74,168,.06); color:#64748b; font-size:13px; font-weight:800; margin-bottom:18px; }
+    .pa-hero h1 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(44px,5.2vw,72px); line-height:1.04; letter-spacing:-.06em; margin:0 0 24px; }
+    .pa-hero p { color:#64748b; font-size:18px; line-height:1.85; max-width:650px; margin-bottom:30px; }
+    .pa-actions { display:flex; gap:14px; flex-wrap:wrap; }
+    .pa-image { position:relative; border-radius:32px; overflow:hidden; box-shadow:0 24px 70px rgba(8,36,92,.14); height:420px; background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .pa-image img { width:100%; height:100%; object-fit:cover; display:block; }
+    .pa-image:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.32)); }
+    .pa-img-tag { position:absolute; left:24px; bottom:24px; z-index:2; padding:18px 22px; border-radius:22px; color:#fff; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(14px); }
+    .pa-img-tag span { display:block; color:#9effc3; font-weight:900; margin-bottom:6px; }
+    .pa-img-tag strong { display:block; font-size:24px; letter-spacing:-.03em; }
+    .pa-stack-section { padding:38px 0 76px; background:linear-gradient(180deg,#fff,#f7fbff); }
+    .pa-stack { display:grid; gap:28px; }
+    .pa-panel { position:sticky; top:92px; display:grid; grid-template-columns:.92fr 1.08fr; gap:30px; align-items:center; min-height:420px; padding:22px; border-radius:34px; background:rgba(255,255,255,.98); border:1px solid rgba(30,74,168,.08); box-shadow:0 24px 72px rgba(8,36,92,.12); overflow:hidden; }
+    .pa-panel:nth-child(1){z-index:3}.pa-panel:nth-child(2){z-index:4}.pa-panel:nth-child(3){z-index:5}.pa-panel:nth-child(4){z-index:6}
+    .pa-panel:nth-child(even){ grid-template-columns:1.08fr .92fr; }
+    .pa-panel:nth-child(even) .pa-copy{ order:2; }
+    .pa-panel:nth-child(even) .pa-panel-img{ order:1; }
+    .pa-copy { padding:20px 26px; }
+    .pa-count { width:42px; height:42px; border-radius:14px; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,var(--brand-blue),var(--green)); font-size:13px; font-weight:900; margin-bottom:16px; }
+    .pa-copy h2 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(28px,3vw,42px); line-height:1.08; letter-spacing:-.045em; margin:0 0 14px; }
+    .pa-copy p { color:#5f6b7a; font-size:15.5px; line-height:1.72; margin-bottom:18px; }
+    .pa-bullets { display:grid; gap:8px; }
+    .pa-bullets div { display:flex; gap:10px; color:#334155; font-size:14.5px; font-weight:650; line-height:1.45; }
+    .pa-bullets div:before { content:"✓"; color:var(--green); font-weight:900; }
+    .pa-panel-img { position:relative; height:345px; border-radius:28px; overflow:hidden; box-shadow:0 18px 44px rgba(8,36,92,.12); background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .pa-panel-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .pa-panel-img:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.18)); }
+    .pa-floating-tag { position:absolute; left:22px; bottom:22px; z-index:2; padding:12px 16px; border-radius:999px; color:#fff; font-size:13px; font-weight:900; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.25); backdrop-filter:blur(14px); }
+    .pa-faq { background:#fff; }
+    .faq-plus-symbol { width:34px; height:34px; min-width:34px; border-radius:50%; display:grid; place-items:center; background:rgba(11,164,75,.08); border:1px solid rgba(11,164,75,.12); color:var(--green); font-size:23px; font-weight:700; line-height:1; transition:.28s ease; }
+    .faq-item.active .faq-plus-symbol { transform:rotate(45deg); background:var(--green); color:#fff; }
+    @media(max-width:1024px){ .pa-hero-grid,.pa-panel,.pa-panel:nth-child(even){ grid-template-columns:1fr; } .pa-panel{ position:relative; top:auto; } .pa-panel:nth-child(even) .pa-copy,.pa-panel:nth-child(even) .pa-panel-img{ order:initial; } .pa-image{ height:330px; } .pa-panel-img{ height:300px; } }
+    @media(max-width:720px){ .pa-hero{ padding-top:106px; } .pa-panel{ padding:16px; border-radius:28px; } .pa-copy{ padding:18px; } .pa-image{ height:280px; } .pa-panel-img{ height:230px; border-radius:22px; } }
+  </style>
+</head>
+
+<body class="pa-page">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a class="brand-logo" href="../index.html">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services">
+    </a>
+
+    <div class="menu">
+      <a href="../index.html">Home</a>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="mutual-funds.html">Mutual Funds</a>
+          <a href="life-insurance.html">Life Insurance</a>
+          <a href="health-insurance.html">Health Insurance</a>
+          <a href="bonds.html">Fixed Income</a>
+          <a href="pms-aifs.html">PMS / AIFs</a>
+          <a href="real-estate.html">Real Estate</a>
+          <a href="loans.html">Loans</a>
+        </div>
+      </div>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="retirement.html">Retirement Saving</a>
+          <a href="child-future.html">Saving for Advanced Wealth</a>
+          <a href="tax-saving.html">Tax Saving</a>
+          <a href="insurance.html">Protection</a>
+          <a href="wealth-solutions.html">PMS / AIFs</a>
+          <a href="estate-creation.html">Estate Creation</a>
+          <a href="liquidity-creation.html">Liquidity Creation</a>
+        </div>
+      </div>
+      <a href="../index.html#why">Why WAY2GRO</a>
+      <a href="../index.html#team">Founders</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank" rel="noopener">
+        <i class="fa-solid fa-lock"></i> Client Login
+      </a>
+    </div>
+  </div>
+</nav>
+
+<a class="floating-whatsapp" href="../index.html#contact" aria-label="Contact WAY2GRO on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Talk to Advisor</span>
+</a>
+
+<main>
+  <section class="pa-hero">
+    <div class="container pa-hero-grid">
+      <div>
+        <div class="pa-breadcrumb">Home / Products / PMS / AIFs</div>
+        <div class="pa-kicker">PMS / AIFs</div>
+        <h1>Advanced investment solutions for serious <span class="hero-highlight">wealth goals</span>.</h1>
+        <p>Portfolio Management Services and Alternative Investment Funds can help eligible investors access differentiated strategies beyond traditional products.</p>
+        <div class="pa-actions">
+          <a class="btn btn-primary" href="../index.html#contact">Explore PMS / AIF Options</a>
+          <a class="btn btn-outline" href="#service-faq">Read FAQs</a>
+        </div>
+      </div>
+
+      <div class="pa-image">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1600&q=85" alt="Advisor discussing PMS and AIF options">
+        <div class="pa-img-tag"><span>Advanced Wealth</span><strong>PMS • AIF • Strategy</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pa-stack-section">
+    <div class="container">
+      <div class="pa-stack">
+
+        <article class="pa-panel">
+          <div class="pa-copy">
+            <div class="pa-count">01</div>
+            <h2>Understand PMS and AIF suitability.</h2>
+            <p>Advanced investment products may not be suitable for every investor. We help evaluate eligibility, risk appetite, investment horizon and portfolio fit.</p>
+            <div class="pa-bullets">
+              <div>Suitability assessment</div>
+              <div>Investor profile review</div>
+              <div>Minimum ticket understanding</div>
+              <div>Portfolio fit discussion</div>
+            </div>
+          </div>
+          <div class="pa-panel-img">
+            <img src="https://images.unsplash.com/photo-1551836022-b06985bceb24?auto=format&fit=crop&w=1600&q=85" alt="PMS AIF suitability discussion">
+            <div class="pa-floating-tag">Suitability Review</div>
+          </div>
+        </article>
+
+        <article class="pa-panel">
+          <div class="pa-copy">
+            <div class="pa-count">02</div>
+            <h2>Move beyond traditional investment options.</h2>
+            <p>PMS and AIFs can provide access to focused portfolios, alternative strategies and differentiated investment opportunities.</p>
+            <div class="pa-bullets">
+              <div>Focused portfolio strategies</div>
+              <div>Alternative investment access</div>
+              <div>Professional management</div>
+              <div>Differentiated return potential</div>
+            </div>
+          </div>
+          <div class="pa-panel-img">
+            <img src="https://images.unsplash.com/photo-1551836022-b06985bceb24?auto=format&fit=crop&w=1600&q=85" alt="Advanced investment portfolio strategy">
+            <div class="pa-floating-tag">Beyond Traditional</div>
+          </div>
+        </article>
+
+        <article class="pa-panel">
+          <div class="pa-copy">
+            <div class="pa-count">03</div>
+            <h2>Evaluate risk, ticket size and liquidity.</h2>
+            <p>Advanced products require clear understanding of lock-ins, liquidity, concentration risk and return expectations before investing.</p>
+            <div class="pa-bullets">
+              <div>Risk disclosure review</div>
+              <div>Liquidity and lock-in understanding</div>
+              <div>Ticket size evaluation</div>
+              <div>Concentration risk assessment</div>
+            </div>
+          </div>
+          <div class="pa-panel-img">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=85" alt="AIF and PMS risk evaluation">
+            <div class="pa-floating-tag">Risk Evaluation</div>
+          </div>
+        </article>
+
+        <article class="pa-panel">
+          <div class="pa-copy">
+            <div class="pa-count">04</div>
+            <h2>Review performance with long-term discipline.</h2>
+            <p>PMS and AIF performance should be reviewed with the right benchmark, time horizon and risk context.</p>
+            <div class="pa-bullets">
+              <div>Benchmark comparison</div>
+              <div>Periodic performance review</div>
+              <div>Risk-adjusted evaluation</div>
+              <div>Exit and reallocation planning</div>
+            </div>
+          </div>
+          <div class="pa-panel-img">
+            <img src="https://images.unsplash.com/photo-1551836022-b06985bceb24?auto=format&fit=crop&w=1600&q=85" alt="PMS AIF portfolio review meeting">
+            <div class="pa-floating-tag">Performance Review</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-premium pa-faq" id="service-faq">
+    <div class="container">
+      <div class="faq-head">
+        <div>
+          <div class="section-kicker">Advanced Wealth FAQ</div>
+          <h2>Questions before you explore <span class="hero-highlight">advanced investments</span>.</h2>
+        </div>
+        <p>Simple answers to help you understand PMS and AIFs better.</p>
+      </div>
+
+      <div class="faq-layout">
+        <div class="faq-left">
+          <div class="faq-badge"><i class="fa-solid fa-circle-check"></i> Advanced Investing</div>
+          <h3>Not sure if PMS / AIF is suitable?</h3>
+          <p>Book a consultation and we’ll help evaluate suitability, risk and portfolio fit.</p>
+          <a href="../index.html#contact" class="faq-cta">Book Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question"><span>What is PMS?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Portfolio Management Service is a professionally managed investment portfolio for eligible investors.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>What is an AIF?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">An Alternative Investment Fund pools capital from eligible investors to invest in defined alternative strategies.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Are PMS and AIFs risky?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Yes. These products can carry market, liquidity, concentration and strategy risks.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Who should consider PMS / AIFs?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Eligible investors with suitable risk appetite, investment horizon and portfolio size may consider them.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-box">
+        <div>
+          <span>Ready to begin?</span>
+          <h2>Let's evaluate advanced investment solutions with clarity.</h2>
+          <p>Understand PMS and AIF options with a suitability-first, risk-aware advisory approach.</p>
+        </div>
+        <a class="btn btn-primary" href="../index.html#contact">Book PMS / AIFs Session</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="premium-footer service-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services. All rights reserved.</span>
+      <a href="../index.html">Back to Homepage</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var progress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', function () {
+    if (progress) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var percent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progress.style.width = percent + '%';
+    }
+  });
+
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) return;
+      var accordion = item.closest('.faq-accordion');
+      if (accordion) {
+        accordion.querySelectorAll('.faq-item').forEach(function (other) {
+          if (other !== item) other.classList.remove('active');
+        });
+      }
+      item.classList.toggle('active');
+    });
+  });
+
+  var floatingWhatsapp = document.querySelector('.floating-whatsapp');
+  var ctaTargets = document.querySelectorAll('.service-cta, footer');
+
+  if (floatingWhatsapp && ctaTargets.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      var hide = entries.some(function (entry) { return entry.isIntersecting; });
+      floatingWhatsapp.classList.toggle('is-hidden-near-cta', hide);
+    }, { threshold: 0.12 });
+
+    ctaTargets.forEach(function (target) { observer.observe(target); });
+  }
+});
+</script>
+</body>
+</html>

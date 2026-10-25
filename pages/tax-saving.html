@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax Saving Planning | WAY2GRO Financial Services</title>
+  <meta name="description" content="Plan tax-saving investments smartly with WAY2GRO Financial Services. Align tax planning with long-term financial goals." />
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body { overflow-x: hidden; }
+    .ts-page { background:#fff; color:var(--navy); }
+    .ts-hero { padding:126px 0 58px; background:#fff; }
+    .ts-hero-grid { display:grid; grid-template-columns:.92fr 1.08fr; gap:58px; align-items:center; }
+    .ts-kicker { color:var(--green); font-weight:900; letter-spacing:.16em; text-transform:uppercase; font-size:13px; margin-bottom:18px; }
+    .ts-breadcrumb { display:inline-flex; padding:8px 14px; border-radius:999px; background:rgba(30,74,168,.06); color:#64748b; font-size:13px; font-weight:800; margin-bottom:18px; }
+    .ts-hero h1 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(44px,5.2vw,72px); line-height:1.04; letter-spacing:-.06em; margin:0 0 24px; }
+    .ts-hero p { color:#64748b; font-size:18px; line-height:1.85; max-width:650px; margin-bottom:30px; }
+    .ts-actions { display:flex; gap:14px; flex-wrap:wrap; }
+    .ts-image { position:relative; border-radius:32px; overflow:hidden; box-shadow:0 24px 70px rgba(8,36,92,.14); height:420px; background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .ts-image img { width:100%; height:100%; object-fit:cover; display:block; }
+    .ts-image:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.32)); }
+    .ts-img-tag { position:absolute; left:24px; bottom:24px; z-index:2; padding:18px 22px; border-radius:22px; color:#fff; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.24); backdrop-filter:blur(14px); }
+    .ts-img-tag span { display:block; color:#9effc3; font-weight:900; margin-bottom:6px; }
+    .ts-img-tag strong { display:block; font-size:24px; letter-spacing:-.03em; }
+    .ts-stack-section { padding:38px 0 76px; background:linear-gradient(180deg,#fff,#f7fbff); }
+    .ts-stack { display:grid; gap:28px; }
+    .ts-panel { position:sticky; top:92px; display:grid; grid-template-columns:.92fr 1.08fr; gap:30px; align-items:center; min-height:420px; padding:22px; border-radius:34px; background:rgba(255,255,255,.98); border:1px solid rgba(30,74,168,.08); box-shadow:0 24px 72px rgba(8,36,92,.12); overflow:hidden; }
+    .ts-panel:nth-child(1){z-index:3}.ts-panel:nth-child(2){z-index:4}.ts-panel:nth-child(3){z-index:5}.ts-panel:nth-child(4){z-index:6}
+    .ts-panel:nth-child(even){ grid-template-columns:1.08fr .92fr; }
+    .ts-panel:nth-child(even) .ts-copy{ order:2; }
+    .ts-panel:nth-child(even) .ts-panel-img{ order:1; }
+    .ts-copy { padding:20px 26px; }
+    .ts-count { width:42px; height:42px; border-radius:14px; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,var(--brand-blue),var(--green)); font-size:13px; font-weight:900; margin-bottom:16px; }
+    .ts-copy h2 { font-family:"Plus Jakarta Sans",Inter,sans-serif; font-size:clamp(28px,3vw,42px); line-height:1.08; letter-spacing:-.045em; margin:0 0 14px; }
+    .ts-copy p { color:#5f6b7a; font-size:15.5px; line-height:1.72; margin-bottom:18px; }
+    .ts-bullets { display:grid; gap:8px; }
+    .ts-bullets div { display:flex; gap:10px; color:#334155; font-size:14.5px; font-weight:650; line-height:1.45; }
+    .ts-bullets div:before { content:"✓"; color:var(--green); font-weight:900; }
+    .ts-panel-img { position:relative; height:345px; border-radius:28px; overflow:hidden; box-shadow:0 18px 44px rgba(8,36,92,.12); background:linear-gradient(135deg,#e8f7ee,#eef5ff); }
+    .ts-panel-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .ts-panel-img:after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent,rgba(4,14,32,.18)); }
+    .ts-floating-tag { position:absolute; left:22px; bottom:22px; z-index:2; padding:12px 16px; border-radius:999px; color:#fff; font-size:13px; font-weight:900; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.25); backdrop-filter:blur(14px); }
+    .ts-faq { background:#fff; }
+    .faq-plus-symbol { width:34px; height:34px; min-width:34px; border-radius:50%; display:grid; place-items:center; background:rgba(11,164,75,.08); border:1px solid rgba(11,164,75,.12); color:var(--green); font-size:23px; font-weight:700; line-height:1; transition:.28s ease; }
+    .faq-item.active .faq-plus-symbol { transform:rotate(45deg); background:var(--green); color:#fff; }
+    @media(max-width:1024px){ .ts-hero-grid,.ts-panel,.ts-panel:nth-child(even){ grid-template-columns:1fr; } .ts-panel{ position:relative; top:auto; } .ts-panel:nth-child(even) .ts-copy,.ts-panel:nth-child(even) .ts-panel-img{ order:initial; } .ts-image{ height:330px; } .ts-panel-img{ height:300px; } }
+    @media(max-width:720px){ .ts-hero{ padding-top:106px; } .ts-panel{ padding:16px; border-radius:28px; } .ts-copy{ padding:18px; } .ts-image{ height:280px; } .ts-panel-img{ height:230px; border-radius:22px; } }
+  </style>
+</head>
+
+<body class="ts-page">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a class="brand-logo" href="../index.html">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services">
+    </a>
+
+    <div class="menu">
+      <a href="../index.html">Home</a>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="mutual-funds.html">Mutual Funds</a>
+          <a href="life-insurance.html">Life Insurance</a>
+          <a href="health-insurance.html">Health Insurance</a>
+          <a href="bonds.html">Fixed Income</a>
+          <a href="pms-aifs.html">PMS / AIFs</a>
+          <a href="real-estate.html">Real Estate</a>
+          <a href="loans.html">Loans</a>
+        </div>
+      </div>
+      <div class="clean-nav-dropdown">
+        <a href="#" class="clean-drop-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
+        <div class="clean-drop-menu">
+          <a href="retirement.html">Retirement Saving</a>
+          <a href="child-future.html">Saving for Child Future</a>
+          <a href="tax-saving.html">Tax Saving</a>
+          <a href="insurance.html">Protection</a>
+          <a href="wealth-solutions.html">Wealth Creation</a>
+          <a href="estate-creation.html">Estate Creation</a>
+          <a href="liquidity-creation.html">Liquidity Creation</a>
+        </div>
+      </div>
+      <a href="../index.html#why">Why WAY2GRO</a>
+      <a href="../index.html#team">Founders</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank" rel="noopener">
+        <i class="fa-solid fa-lock"></i> Client Login
+      </a>
+    </div>
+  </div>
+</nav>
+
+<a class="floating-whatsapp" href="../index.html#contact" aria-label="Contact WAY2GRO on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Talk to Advisor</span>
+</a>
+
+<main>
+  <section class="ts-hero">
+    <div class="container ts-hero-grid">
+      <div>
+        <div class="ts-breadcrumb">Home / Services / Tax Saving</div>
+        <div class="ts-kicker">Tax Saving Planning</div>
+        <h1>Save taxes. Grow <span class="hero-highlight">wealth</span>. Plan smarter.</h1>
+        <p>Tax planning is not just about reducing taxes. It's about aligning investments with your long-term financial goals while staying compliant.</p>
+        <div class="ts-actions">
+          <a class="btn btn-primary" href="../index.html#contact">Book Tax Planning Consultation</a>
+          <a class="btn btn-outline" href="#service-faq">Read FAQs</a>
+        </div>
+      </div>
+
+      <div class="ts-image">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=85" alt="Tax planning consultation">
+        <div class="ts-img-tag"><span>Tax Efficient Planning</span><strong>Save • Invest • Grow</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ts-stack-section">
+    <div class="container">
+      <div class="ts-stack">
+
+        <article class="ts-panel">
+          <div class="ts-copy">
+            <div class="ts-count">01</div>
+            <h2>Understand your tax-saving opportunities.</h2>
+            <p>Many investors make tax-saving decisions at the last minute. We help you understand available options and align them with your overall financial plan.</p>
+            <div class="ts-bullets">
+              <div>Section-wise tax planning discussion</div>
+              <div>Investment-linked tax saving review</div>
+              <div>Insurance and retirement options</div>
+              <div>Goal-aligned tax strategy</div>
+            </div>
+          </div>
+          <div class="ts-panel-img">
+            <img src="https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=1600&q=85" alt="Tax saving opportunities">
+            <div class="ts-floating-tag">Tax Planning</div>
+          </div>
+        </article>
+
+        <article class="ts-panel">
+          <div class="ts-copy">
+            <div class="ts-count">02</div>
+            <h2>Use investments that work beyond tax benefits.</h2>
+            <p>A good tax-saving investment should not only reduce tax but also support your wealth creation, protection or retirement goals.</p>
+            <div class="ts-bullets">
+              <div>ELSS and market-linked options</div>
+              <div>Insurance-linked protection planning</div>
+              <div>Retirement-focused products</div>
+              <div>Long-term suitability review</div>
+            </div>
+          </div>
+          <div class="ts-panel-img">
+            <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1600&q=85" alt="Tax saving investments">
+            <div class="ts-floating-tag">Tax Efficient Investing</div>
+          </div>
+        </article>
+
+        <article class="ts-panel">
+          <div class="ts-copy">
+            <div class="ts-count">03</div>
+            <h2>Plan for taxes throughout the year.</h2>
+            <p>Tax planning works best when it is part of your annual financial roadmap, not a rushed decision near the deadline.</p>
+            <div class="ts-bullets">
+              <div>Year-round investment planning</div>
+              <div>Cash-flow based contribution strategy</div>
+              <div>Periodic tax-saving review</div>
+              <div>Avoid deadline pressure</div>
+            </div>
+          </div>
+          <div class="ts-panel-img">
+            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=85" alt="Year round tax planning">
+            <div class="ts-floating-tag">Year Round Planning</div>
+          </div>
+        </article>
+
+        <article class="ts-panel">
+          <div class="ts-copy">
+            <div class="ts-count">04</div>
+            <h2>Avoid last-minute tax decisions.</h2>
+            <p>Last-minute investments often lead to unsuitable products. We help you choose tax-saving options after understanding your goals and risk comfort.</p>
+            <div class="ts-bullets">
+              <div>Suitability-first recommendations</div>
+              <div>Existing investment review</div>
+              <div>Risk and lock-in understanding</div>
+              <div>Long-term financial fit</div>
+            </div>
+          </div>
+          <div class="ts-panel-img">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=85" alt="Avoid last-minute tax decisions">
+            <div class="ts-floating-tag">Smart Decisions</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-premium ts-faq" id="service-faq">
+    <div class="container">
+      <div class="faq-head">
+        <div>
+          <div class="section-kicker">Tax Saving FAQ</div>
+          <h2>Questions before you start <span class="hero-highlight">tax planning</span>.</h2>
+        </div>
+        <p>Simple answers to help you make better tax-saving decisions.</p>
+      </div>
+
+      <div class="faq-layout">
+        <div class="faq-left">
+          <div class="faq-badge"><i class="fa-solid fa-circle-check"></i> Tax Efficient Planning</div>
+          <h3>Not sure which option is right?</h3>
+          <p>Book a consultation and we’ll help you align tax-saving options with your broader financial plan.</p>
+          <a href="../index.html#contact" class="faq-cta">Book Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question"><span>Is tax planning only for March?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">No. Tax planning works best when done throughout the year as part of your financial plan.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Which tax-saving investment is best?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">It depends on your goals, risk comfort, time horizon and liquidity needs.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Can ELSS help with tax saving?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">ELSS mutual funds can offer tax benefits and market-linked growth, but they carry investment risk.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Should insurance be bought only for tax saving?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">No. Insurance should primarily be purchased for protection, not just tax benefits.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-box">
+        <div>
+          <span>Ready to begin?</span>
+          <h2>Let's create a tax-efficient financial plan.</h2>
+          <p>Plan tax-saving investments that support your long-term goals instead of making rushed end-of-year decisions.</p>
+        </div>
+        <a class="btn btn-primary" href="../index.html#contact">Book Tax Planning Consultation</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="premium-footer service-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services. All rights reserved.</span>
+      <a href="../index.html">Back to Homepage</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var progress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', function () {
+    if (progress) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var percent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progress.style.width = percent + '%';
+    }
+  });
+
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) return;
+      var accordion = item.closest('.faq-accordion');
+      if (accordion) {
+        accordion.querySelectorAll('.faq-item').forEach(function (other) {
+          if (other !== item) other.classList.remove('active');
+        });
+      }
+      item.classList.toggle('active');
+    });
+  });
+
+  var floatingWhatsapp = document.querySelector('.floating-whatsapp');
+  var ctaTargets = document.querySelectorAll('.service-cta, footer');
+
+  if (floatingWhatsapp && ctaTargets.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      var hide = entries.some(function (entry) { return entry.isIntersecting; });
+      floatingWhatsapp.classList.toggle('is-hidden-near-cta', hide);
+    }, { threshold: 0.12 });
+
+    ctaTargets.forEach(function (target) { observer.observe(target); });
+  }
+});
+</script>
+</body>
+</html>
