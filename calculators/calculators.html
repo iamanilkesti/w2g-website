@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Financial Calculators | WAY2GRO</title>
+
+  <link rel="icon" href="../assets/images/logo/favicon.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/calculators.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<nav class="nav" id="navbar">
+  <div class="container nav-inner">
+    <a href="../index.html#home" class="brand-logo">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO logo">
+    </a>
+
+    <div class="menu">
+      <a href="../index.html#home">Home</a>
+      <a href="../index.html#services">Services</a>
+      <a href="../index.html#why">Why WAY2GRO</a>
+      <a href="../index.html#team">Founders</a>
+      <a href="../index.html#faq">FAQ</a>
+      <a href="../index.html#contact">Contact</a>
+    </div>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank">
+        <i class="fa-solid fa-lock"></i> Client Login
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="groww-calc-page">
+
+  <div class="container">
+    <a class="back-link" href="../index.html#calculators">
+      <i class="fa-solid fa-arrow-left"></i> Back to Home
+    </a>
+
+    <h1 class="page-title" id="pageTitle">SIP Calculator</h1>
+
+    <div class="calc-page-grid">
+
+      <section class="calculator-main-card">
+
+        <div class="calc-tabs">
+  <button class="tab-btn active" data-type="sip">SIP</button>
+  <button class="tab-btn" data-type="lumpsum">Lumpsum</button>
+  <button class="tab-btn" data-type="swp">SWP</button>
+  <button class="tab-btn" data-type="goal">Goal</button>
+  <button class="tab-btn" data-type="emi">EMI</button>
+  <button class="tab-btn" data-type="fd">FD</button>
+  <button class="tab-btn" data-type="ppf">PPF</button>
+  <button class="tab-btn" data-type="retirement">Retirement</button>
+</div>
+
+        <div class="calculator-content">
+
+          <div class="input-side">
+
+            <div class="calc-row">
+              <div class="calc-row-top">
+                <label id="label1">Monthly Investment</label>
+                <div class="value-box">
+                  <span id="prefix1">₹</span>
+                  <input id="input1" type="number">
+                  <span id="suffix1"></span>
+                </div>
+              </div>
+              <input id="range1" type="range">
+            </div>
+
+            <div class="calc-row">
+              <div class="calc-row-top">
+                <label id="label2">Expected Return Rate</label>
+                <div class="value-box">
+                  <span id="prefix2"></span>
+                  <input id="input2" type="number">
+                  <span id="suffix2">%</span>
+                </div>
+              </div>
+              <input id="range2" type="range">
+            </div>
+
+            <div class="calc-row">
+              <div class="calc-row-top">
+                <label id="label3">Time Period</label>
+                <div class="value-box">
+                  <span id="prefix3"></span>
+                  <input id="input3" type="number">
+                  <span id="suffix3">Yr</span>
+                </div>
+              </div>
+              <input id="range3" type="range">
+            </div>
+
+            <div class="calc-row" id="row4">
+              <div class="calc-row-top">
+                <label id="label4">Extra</label>
+                <div class="value-box">
+                  <span id="prefix4">₹</span>
+                  <input id="input4" type="number">
+                  <span id="suffix4"></span>
+                </div>
+              </div>
+              <input id="range4" type="range">
+            </div>
+
+          </div>
+
+          <div class="chart-side">
+            <div class="legend-row">
+              <span><i class="legend-dot invested"></i><b id="legend1">Invested amount</b></span>
+              <span><i class="legend-dot returns"></i><b id="legend2">Est. returns</b></span>
+            </div>
+
+            <div class="chart-wrap">
+              <canvas id="calcChart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="result-area">
+          <div class="result-lines">
+            <div>
+              <span id="resultLabel1">Invested amount</span>
+              <strong id="resultValue1">₹0</strong>
+            </div>
+            <div>
+              <span id="resultLabel2">Est. returns</span>
+              <strong id="resultValue2">₹0</strong>
+            </div>
+            <div>
+              <span id="resultLabel3">Total value</span>
+              <strong id="resultValue3">₹0</strong>
+            </div>
+          </div>
+
+          <a class="invest-now-btn" href="../index.html#contact">INVEST NOW</a>
+        </div>
+
+      </section>
+
+      <aside class="calc-sidebar">
+
+        <div class="invest-card">
+          <div class="coin-icon">₹</div>
+          <h3>Invest with WAY2GRO</h3>
+          <p>Start building wealth with disciplined planning and expert guidance.</p>
+          <a href="../index.html#contact">BOOK FREE CONSULTATION</a>
+        </div>
+
+        <div class="popular-card">
+          <h3>Popular Calculators</h3>
+          <button data-type="sip">SIP Calculator</button>
+<button data-type="lumpsum">Lumpsum Calculator</button>
+<button data-type="swp">SWP Calculator</button>
+<button data-type="goal">Goal Planner</button>
+<button data-type="emi">EMI Calculator</button>
+<button data-type="fd">FD Calculator</button>
+<button data-type="ppf">PPF Calculator</button>
+<button data-type="retirement">Retirement Calculator</button>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <section class="calculator-info">
+      <h2 id="infoTitle">SIP Calculator - Systematic Investment Plan Calculator</h2>
+      <p id="infoText">
+        SIP calculator helps you estimate the future value of your monthly investments based on expected return and investment duration.
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<script src="../assets/js/calculators.js"></script>
+<!-- FOOTER -->
+<footer
+ class="premium-footer">
+  <div class="container">
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services logo">
+
+        <p>
+          WAY2GRO Financial Services helps families plan, invest, protect and grow
+          wealth through structured financial guidance and long-term advisory.
+        </p>
+
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#why">Why WAY2GRO</a>
+        <a href="#journey">Financial Journey</a>
+        <a href="#team">Leadership</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="#services">Mutual Funds</a>
+        <a href="#services">SIP Planning</a>
+        <a href="#services">Insurance Planning</a>
+        <a href="#services">Fixed Income / Bonds</a>
+        <a href="#services">Retirement Planning</a>
+        <a href="#services">Portfolio Review</a>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h4>Contact</h4>
+
+        <a href="mailto:info@way2gro.in">
+          <i class="fa-solid fa-envelope"></i>
+          info@way2gro.in
+        </a>
+
+        <a href="#contact">
+          <i class="fa-brands fa-whatsapp"></i>
+          WhatsApp / Call Advisor
+        </a>
+
+        <a href="#">
+          <i class="fa-solid fa-location-dot"></i>
+          India
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-disclaimer">
+      <div>
+        <strong>Disclaimer:</strong>
+        Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.
+        The information on this website is for general awareness and should not be treated as investment advice without proper consultation.
+      </div>
+
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services. All rights reserved.</span>
+      <span>Your Trust. Our Expertise.</span>
+    </div>
+
+  </div>
+</footer>
+
+
+</body>
+</html>
