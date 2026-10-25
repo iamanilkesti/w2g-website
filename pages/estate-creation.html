@@ -1,18 +1,678 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Estate Creation | WAY2GRO</title><link rel="stylesheet" href="../assets/css/style.css"></head><body><nav class="nav" id="navbar"><div class="container nav-inner"><a class="brand-logo" href="../index.html"><img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO"></a><div class="menu">
+pages/estate-creation.html - <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estate Creation & Legacy Planning | WAY2GRO Financial Services</title>
+  <meta name="description" content="Build, protect and transfer wealth with structured estate creation and legacy planning from WAY2GRO Financial Services." />
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body { overflow-x: hidden; }
+
+    .ec-page { background:#fff; color:var(--navy); }
+
+    .ec-hero {
+      padding:126px 0 58px;
+      background:#fff;
+    }
+
+    .ec-hero-grid {
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:58px;
+      align-items:center;
+    }
+
+    .ec-kicker {
+      color:var(--green);
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:13px;
+      margin-bottom:18px;
+    }
+
+    .ec-breadcrumb {
+      display:inline-flex;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(30,74,168,.06);
+      color:#64748b;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .ec-hero h1 {
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      font-size:clamp(44px,5.2vw,72px);
+      line-height:1.04;
+      letter-spacing:-.06em;
+      margin:0 0 24px;
+    }
+
+    .ec-hero p {
+      color:#64748b;
+      font-size:18px;
+      line-height:1.85;
+      max-width:650px;
+      margin-bottom:30px;
+    }
+
+    .ec-actions { display:flex; gap:14px; flex-wrap:wrap; }
+
+    .ec-image {
+      position:relative;
+      border-radius:32px;
+      overflow:hidden;
+      box-shadow:0 24px 70px rgba(8,36,92,.14);
+      height:420px;
+      background:linear-gradient(135deg,#e8f7ee,#eef5ff);
+    }
+
+    .ec-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .ec-image:after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent,rgba(4,14,32,.36));
+    }
+
+    .ec-img-tag {
+      position:absolute;
+      left:24px;
+      bottom:24px;
+      z-index:2;
+      padding:18px 22px;
+      border-radius:22px;
+      color:#fff;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.24);
+      backdrop-filter:blur(14px);
+    }
+
+    .ec-img-tag span {
+      display:block;
+      color:#9effc3;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+
+    .ec-img-tag strong {
+      display:block;
+      font-size:24px;
+      letter-spacing:-.03em;
+    }
+
+    .ec-stack-section {
+      padding:38px 0 76px;
+      background:linear-gradient(180deg,#fff,#f7fbff);
+    }
+
+    .ec-stack { display:grid; gap:28px; }
+
+    .ec-panel {
+      position:sticky;
+      top:92px;
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:30px;
+      align-items:center;
+      min-height:420px;
+      padding:22px;
+      border-radius:34px;
+      background:rgba(255,255,255,.98);
+      border:1px solid rgba(30,74,168,.08);
+      box-shadow:0 24px 72px rgba(8,36,92,.12);
+      overflow:hidden;
+    }
+
+    .ec-panel:nth-child(1){z-index:3}
+    .ec-panel:nth-child(2){z-index:4}
+    .ec-panel:nth-child(3){z-index:5}
+    .ec-panel:nth-child(4){z-index:6}
+
+    .ec-panel:nth-child(even) { grid-template-columns:1.08fr .92fr; }
+    .ec-panel:nth-child(even) .ec-copy { order:2; }
+    .ec-panel:nth-child(even) .ec-panel-img { order:1; }
+
+    .ec-copy { padding:20px 26px; }
+
+    .ec-count {
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:linear-gradient(135deg,var(--brand-blue),var(--green));
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:16px;
+    }
+
+    .ec-copy h2 {
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      font-size:clamp(28px,3vw,42px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      margin:0 0 14px;
+    }
+
+    .ec-copy p {
+      color:#5f6b7a;
+      font-size:15.5px;
+      line-height:1.72;
+      margin-bottom:18px;
+    }
+
+    .ec-bullets {
+      display:grid;
+      gap:8px;
+    }
+
+    .ec-bullets div {
+      display:flex;
+      gap:10px;
+      color:#334155;
+      font-size:14.5px;
+      font-weight:650;
+      line-height:1.45;
+    }
+
+    .ec-bullets div:before {
+      content:"✓";
+      color:var(--green);
+      font-weight:900;
+    }
+
+    .ec-panel-img {
+      position:relative;
+      height:345px;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 18px 44px rgba(8,36,92,.12);
+      background:linear-gradient(135deg,#e8f7ee,#eef5ff);
+    }
+
+    .ec-panel-img img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .ec-panel-img:after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent,rgba(4,14,32,.18));
+    }
+
+    .ec-floating-tag {
+      position:absolute;
+      left:22px;
+      bottom:22px;
+      z-index:2;
+      padding:12px 16px;
+      border-radius:999px;
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(14px);
+    }
+
+    .ec-faq { background:#fff; }
+
+    .faq-plus-symbol {
+      width:34px;
+      height:34px;
+      min-width:34px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(11,164,75,.08);
+      border:1px solid rgba(11,164,75,.12);
+      color:var(--green);
+      font-size:23px;
+      font-weight:700;
+      line-height:1;
+      transition:.28s ease;
+    }
+
+    .faq-item.active .faq-plus-symbol {
+      transform:rotate(45deg);
+      background:var(--green);
+      color:#fff;
+    }
+
+    @media(max-width:1024px){
+      .ec-hero-grid, .ec-panel, .ec-panel:nth-child(even) {
+        grid-template-columns:1fr;
+      }
+      .ec-panel { position:relative; top:auto; }
+      .ec-panel:nth-child(even) .ec-copy,
+      .ec-panel:nth-child(even) .ec-panel-img { order:initial; }
+      .ec-image { height:330px; }
+      .ec-panel-img { height:300px; }
+    }
+
+    @media(max-width:720px){
+      .ec-hero { padding-top:106px; }
+      .ec-panel { padding:16px; border-radius:28px; }
+      .ec-copy { padding:18px; }
+      .ec-image { height:280px; }
+      .ec-panel-img { height:230px; border-radius:22px; }
+    }
+  </style>
+</head>
+
+<body class="ec-page">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand-logo" href="../index.html">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services">
+    </a>
+
+      <div class="menu">
 
         <a href="../index.html">Home</a>
         <div class="clean-nav-dropdown">
           <a href="#" class="clean-drop-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="clean-drop-menu"><a href="mutual-funds.html">Mutual Funds</a><a href="life-insurance.html">Life Insurance</a><a href="health-insurance.html">Health Insurance</a><a href="bonds.html">Fixed Income</a><a href="pms-aifs.html">PMS / AIFs</a><a href="real-estate.html">Real Estate</a><a href="loans.html">Loans</a></div>
+          <div class="clean-drop-menu">
+<a href="mutual-funds.html">Mutual Funds</a>
+<a href="life-insurance.html">Life Insurance</a>
+<a href="health-insurance.html">Health Insurance</a>
+<a href="bonds.html">Fixed Income</a>
+<a href="pms-aifs.html">PMS / AIFs</a>
+<a href="real-estate.html">Real Estate</a>
+<a href="loans.html">Loans</a></div>
         </div>
         <div class="clean-nav-dropdown">
           <a href="#" class="clean-drop-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="clean-drop-menu"><a href="retirement.html">Retirement Saving</a><a href="child-future.html">Saving for Child Future</a><a href="tax-saving.html">Tax Saving</a><a href="insurance.html">Protection</a><a href="wealth-solutions.html">Wealth Creation</a><a href="estate-creation.html">Estate Creation</a><a href="liquidity-creation.html">Liquidity Creation</a></div>
+          <div class="clean-drop-menu">
+<a href="retirement.html">Retirement Saving</a>
+<a href="child-future.html">Saving for Child Future</a>
+<a href="tax-saving.html">Tax Saving</a>
+<a href="insurance.html">Protection</a>
+<a href="wealth-solutions.html">Wealth Creation</a>
+<a href="estate-creation.html">Estate Creation</a>
+<a href="liquidity-creation.html">Liquidity Creation</a>
+</div>
         </div>
-        <a href="../index.html#why">Why WAY2GRO</a>
-        <a href="../index.html#team">Founders</a>
-        <a href="../index.html#faq">FAQ</a>
-        <a href="../index.html#contact">Contact</a>
-        
+      <a href="team.html">Team</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+
       </div>
-      <div class="nav-actions"><a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank"><i class="fa-solid fa-lock"></i> Client Login</a></div></div></nav><section class="story-service-hero"><div class="container story-hero-grid"><div class="story-hero-copy reveal"><div class="breadcrumb">Home / Estate Creation</div><div class="section-kicker">WAY2GRO</div><h1>Build and preserve your legacy.</h1><p>Think beyond investments with inheritance and legacy-oriented planning.</p><div class="story-actions"><a class="btn btn-primary" href="../index.html#contact">Book Free Consultation</a><a class="btn btn-outline" href="../index.html#services">Explore More</a></div></div><div class="story-image-card reveal"><div class="story-image-content"><span>Coming Next</span><strong>Premium page ready</strong></div></div></div></section><footer class="premium-footer service-footer"><div class="container"><div class="footer-bottom"><span>© 2026 WAY2GRO Financial Services.</span><a href="../index.html">Back to Homepage</a></div></div></footer><script src="../assets/js/app.js"></script></body></html>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank" rel="noopener"><i class="fa-solid fa-lock"></i> Client Login</a>
+        <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+      </div>
+    </div>
+  </nav>
+
+<a class="floating-whatsapp" href="../index.html#contact" aria-label="Contact WAY2GRO on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Talk to Advisor</span>
+</a>
+
+<main>
+  <section class="ec-hero">
+    <div class="container ec-hero-grid">
+      <div>
+        <div class="ec-breadcrumb">Home / Services / Estate Creation</div>
+        <div class="ec-kicker">Estate Creation & Legacy Planning</div>
+        <h1>Build your wealth. Protect your <span class="hero-highlight">legacy</span>.</h1>
+        <p>Creating wealth is only one part of a complete financial journey. Estate planning helps you organize, protect and transfer your assets so that the wealth you build can support the people and causes that matter to you.</p>
+        <div class="ec-actions">
+          <a class="btn btn-primary" href="../index.html#contact">Plan Your Estate</a>
+          <a class="btn btn-outline" href="#service-faq">Read FAQs</a>
+        </div>
+      </div>
+
+      <div class="ec-image">
+        <img src="../assets/images/services/estate-creation/hero-estate-planning.jpg" alt="Family discussing estate and legacy planning">
+        <div class="ec-img-tag">
+          <span>Wealth • Protection • Legacy</span>
+          <strong>Estate Creation</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ec-stack-section">
+    <div class="container">
+      <div class="ec-stack">
+
+        <article class="ec-panel">
+          <div class="ec-copy">
+            <div class="ec-count">01</div>
+            <h2>Create wealth with a purpose beyond today.</h2>
+            <p>Estate creation begins with building a strong financial foundation. A disciplined investment strategy can help you accumulate assets for your family, future responsibilities and long-term legacy.</p>
+            <div class="ec-bullets">
+              <div>Goal-based wealth accumulation</div>
+              <div>Long-term investment planning</div>
+              <div>Diversified asset allocation</div>
+              <div>Family wealth creation</div>
+            </div>
+          </div>
+          <div class="ec-panel-img">
+            <img src="../assets/images/services/estate-creation/wealth-creation.jpg" alt="Family wealth creation and long-term investing">
+            <div class="ec-floating-tag">Wealth Creation</div>
+          </div>
+        </article>
+
+        <article class="ec-panel">
+          <div class="ec-copy">
+            <div class="ec-count">02</div>
+            <h2>Protect the wealth you worked hard to build.</h2>
+            <p>A strong estate plan considers the risks that could interrupt wealth creation. Adequate life and health protection, emergency liquidity and appropriate asset structuring can help safeguard your family's financial future.</p>
+            <div class="ec-bullets">
+              <div>Life insurance protection</div>
+              <div>Health and emergency planning</div>
+              <div>Liability and risk assessment</div>
+              <div>Financial continuity for family</div>
+            </div>
+          </div>
+          <div class="ec-panel-img">
+            <img src="../assets/images/services/estate-creation/wealth-protection.jpg" alt="Family wealth protection and financial security">
+            <div class="ec-floating-tag">Wealth Protection</div>
+          </div>
+        </article>
+
+        <article class="ec-panel">
+          <div class="ec-copy">
+            <div class="ec-count">03</div>
+            <h2>Organize your assets for a smoother transition.</h2>
+            <p>As your wealth grows, organizing investments, insurance, property and financial records becomes increasingly important. Clear ownership and nomination details can reduce uncertainty and make it easier for your family to understand your financial affairs.</p>
+            <div class="ec-bullets">
+              <div>Asset and liability inventory</div>
+              <div>Nomination review</div>
+              <div>Beneficiary and ownership review</div>
+              <div>Important document organization</div>
+            </div>
+          </div>
+          <div class="ec-panel-img">
+            <img src="../assets/images/services/estate-creation/asset-organization.jpg" alt="Organizing financial assets for estate planning">
+            <div class="ec-floating-tag">Asset Organization</div>
+          </div>
+        </article>
+
+        <article class="ec-panel">
+          <div class="ec-copy">
+            <div class="ec-count">04</div>
+            <h2>Plan how your wealth should pass to the next generation.</h2>
+            <p>Legacy planning brings together your financial assets, nominations, family objectives and succession intentions. Where legal instruments such as wills or trusts are required, they should be prepared with appropriately qualified legal and tax professionals.</p>
+            <div class="ec-bullets">
+              <div>Succession and legacy planning</div>
+              <div>Nominee and beneficiary alignment</div>
+              <div>Family financial continuity</div>
+              <div>Coordination with legal and tax professionals</div>
+            </div>
+          </div>
+          <div class="ec-panel-img">
+            <img src="../assets/images/services/estate-creation/legacy-planning.jpg" alt="Family legacy and succession planning">
+            <div class="ec-floating-tag">Legacy Planning</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-premium ec-faq" id="service-faq">
+    <div class="container">
+      <div class="faq-head">
+        <div>
+          <div class="section-kicker">Estate Creation FAQ</div>
+          <h2>Questions about building and protecting your <span class="hero-highlight">legacy</span>.</h2>
+        </div>
+        <p>Simple answers to help you understand estate creation, succession and legacy planning.</p>
+      </div>
+
+      <div class="faq-layout">
+        <div class="faq-left">
+          <div class="faq-badge"><i class="fa-solid fa-circle-check"></i> Legacy Planning</div>
+          <h3>Want to organize your family wealth?</h3>
+          <p>Start by understanding what you own, what you want to protect and how you want your wealth to support your family. WAY2GRO can help you structure the financial-planning side of that journey.</p>
+          <a href="../index.html#contact" class="faq-cta">Book Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question">
+              <span>What is estate creation?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">Estate creation is the process of systematically building assets and financial resources that can support your own goals and eventually form part of the wealth you pass on to your beneficiaries.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>When should I start estate planning?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">Estate planning becomes relevant as soon as you begin accumulating meaningful assets or have people financially dependent on you. It should be reviewed as your family, assets and responsibilities change.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Is nomination enough for estate planning?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">Nomination is an important operational step, but it may not replace a complete succession plan. The legal treatment can vary by asset and jurisdiction, so wills, nominations and ownership structures should be reviewed with qualified legal professionals.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Do NRIs need estate planning for assets in India?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">NRIs with assets in India should consider succession, nomination, tax and cross-border implications. Requirements can differ across jurisdictions, so professional legal and tax advice may be necessary.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How can WAY2GRO help with estate creation?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">WAY2GRO can help with the financial-planning side of estate creation, including wealth accumulation, protection planning, asset organization and reviewing how your investments support your legacy goals. Legal documents should be prepared by qualified legal professionals.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-box">
+        <div>
+          <span>Planning beyond wealth creation?</span>
+          <h2>Let's build a financial legacy that reflects what matters to you.</h2>
+          <p>From building and protecting assets to organizing your financial affairs for the next generation, WAY2GRO can help you approach estate creation with clarity and structure.</p>
+        </div>
+        <a class="btn btn-primary" href="../index.html#contact">Book Free Consultation</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var progress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', function () {
+    if (progress) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var percent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progress.style.width = percent + '%';
+    }
+  });
+
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) return;
+
+      var accordion = item.closest('.faq-accordion');
+      if (accordion) {
+        accordion.querySelectorAll('.faq-item').forEach(function (other) {
+          if (other !== item) other.classList.remove('active');
+        });
+      }
+
+      item.classList.toggle('active');
+    });
+  });
+
+  var floatingWhatsapp = document.querySelector('.floating-whatsapp');
+  var ctaTargets = document.querySelectorAll('.service-cta, footer');
+
+  if (floatingWhatsapp && ctaTargets.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      var hide = entries.some(function (entry) {
+        return entry.isIntersecting;
+      });
+
+      floatingWhatsapp.classList.toggle('is-hidden-near-cta', hide);
+    }, { threshold: 0.12 });
+
+    ctaTargets.forEach(function (target) {
+      observer.observe(target);
+    });
+  }
+});
+</script>
+
+<footer
+ class="premium-footer">
+  <div class="container">
+
+    <div class="footer-cta reveal">
+      <div>
+        <span>Ready to grow your wealth?</span>
+        <h2>Start your investment journey with WAY2GRO today.</h2>
+      </div>
+      <a class="btn btn-primary" href="#contact">
+        <i class="fa-solid fa-calendar-check"></i>
+        Book Free Consultation
+      </a>
+    </div>
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services logo">
+
+        <p>
+          WAY2GRO Financial Services Pvt. Ltd. helps families plan, invest, protect and grow
+          wealth through structured financial guidance and long-term advisory.
+        </p>
+
+        <div class="footer-social">
+    <a href="#" class="instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="#" class="linkedin">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="#" class="facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="#" class="youtube">
+        <i class="fab fa-youtube"></i>
+    </a>
+</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="pages/about.html">About Us</a>
+        <a href="pages/team.html">Leadership</a>
+        <a href="pages/contact.html">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="#services">Mutual Funds</a>
+        <a href="#services">SIP Planning</a>
+        <a href="#services">Insurance Planning</a>
+        <a href="#services">Fixed Income / Bonds</a>
+        <a href="#services">Retirement Planning</a>
+        <a href="#services">Portfolio Review</a>
+      </div>
+
+      <div class="footer-col footer-contact-simple">
+    <h4>Contact</h4>
+
+    <a href="mailto:info@way2gro.in">
+      <i class="fa-solid fa-envelope"></i>
+      info@way2gro.in
+    </a>
+
+    <a href="tel:+919741881122">
+      <i class="fa-solid fa-phone"></i>
+      +91 9741881122 / 9886677815
+    </a>
+
+    <a href="https://www.google.com/maps/place/VGV+Towers,+1028,+27th+A+Main+Rd,+Putlanpalya,+Jayanagara+9th+Block,+Jayanagar,+Bengaluru,+Karnataka+560041,+India/@12.9171622,77.5761449,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1508c66cb37d:0x936a72b8e42e36a5!8m2!3d12.9171419!4d77.5945991!16s%2Fg%2F11w7qvsrz6?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
+       target="_blank">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>
+        3rd Floor, 27th main, VGV Towers<br>
+        100ft ring road, Jayanagar 9th Block,
+        Bengaluru - 560041 <br>
+        Karnataka, India
+      </span>
+    </a>
+  </div>
+
+    </div>
+
+    <div class="footer-disclaimer">
+      <div>
+        <strong>Disclaimer:</strong>
+        Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.
+        The information on this website is for general awareness and should not be treated as investment advice without proper consultation.
+      </div>
+
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services Pvt. Ltd. All rights reserved.</span>
+      <span>Your Trust. Our Expertise.</span>
+    </div>
+
+  </div>
+</footer>
+
+
+
+
+  <script src="assets/js/app.js"></script>
+
+  <!-- WAY2GRO Assistant -->
+
+</body>
+</html>
