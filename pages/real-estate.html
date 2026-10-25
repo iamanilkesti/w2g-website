@@ -1,18 +1,644 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Real Estate | WAY2GRO</title><link rel="stylesheet" href="../assets/css/style.css"></head><body><nav class="nav" id="navbar"><div class="container nav-inner"><a class="brand-logo" href="../index.html"><img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO"></a><div class="menu">
+pages/retirement.html - <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retirement Planning | WAY2GRO Financial Services</title>
+  <meta name="description" content="Plan your retirement corpus, future income streams and long-term financial independence with WAY2GRO Financial Services." />
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body { overflow-x: hidden; }
+
+    .mf-page { background:#fff; color:var(--navy); }
+
+    .mf-hero {
+      padding: 126px 0 58px;
+      background:#fff;
+    }
+
+    .mf-hero-grid {
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:58px;
+      align-items:center;
+    }
+
+    .mf-kicker {
+      color:var(--green);
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:13px;
+      margin-bottom:18px;
+    }
+
+    .mf-breadcrumb {
+      display:inline-flex;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(30,74,168,.06);
+      color:#64748b;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .mf-hero h1 {
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      font-size:clamp(44px,5.2vw,72px);
+      line-height:1.04;
+      letter-spacing:-.06em;
+      margin:0 0 24px;
+    }
+
+    .mf-hero p {
+      color:#64748b;
+      font-size:18px;
+      line-height:1.85;
+      max-width:650px;
+      margin-bottom:30px;
+    }
+
+    .mf-actions { display:flex; gap:14px; flex-wrap:wrap; }
+
+    .mf-image {
+      position:relative;
+      border-radius:32px;
+      overflow:hidden;
+      box-shadow:0 24px 70px rgba(8,36,92,.14);
+      height:420px;
+      background:linear-gradient(135deg,#e8f7ee,#eef5ff);
+    }
+
+    .mf-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .mf-image:after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent,rgba(4,14,32,.32));
+    }
+
+    .mf-img-tag {
+      position:absolute;
+      left:24px;
+      bottom:24px;
+      z-index:2;
+      padding:18px 22px;
+      border-radius:22px;
+      color:#fff;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.24);
+      backdrop-filter:blur(14px);
+    }
+
+    .mf-img-tag span {
+      display:block;
+      color:#9effc3;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+
+    .mf-img-tag strong {
+      display:block;
+      font-size:24px;
+      letter-spacing:-.03em;
+    }
+
+    .mf-stack-section {
+      padding:38px 0 76px;
+      background:linear-gradient(180deg,#fff,#f7fbff);
+    }
+
+    .mf-stack { display:grid; gap:28px; }
+
+    .mf-panel {
+      position:sticky;
+      top:92px;
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:30px;
+      align-items:center;
+      min-height:420px;
+      padding:22px;
+      border-radius:34px;
+      background:rgba(255,255,255,.98);
+      border:1px solid rgba(30,74,168,.08);
+      box-shadow:0 24px 72px rgba(8,36,92,.12);
+      overflow:hidden;
+    }
+
+    .mf-panel:nth-child(1){z-index:3}
+    .mf-panel:nth-child(2){z-index:4}
+    .mf-panel:nth-child(3){z-index:5}
+    .mf-panel:nth-child(4){z-index:6}
+
+    .mf-panel:nth-child(even) { grid-template-columns:1.08fr .92fr; }
+    .mf-panel:nth-child(even) .mf-copy { order:2; }
+    .mf-panel:nth-child(even) .mf-panel-img { order:1; }
+
+    .mf-copy { padding:20px 26px; }
+
+    .mf-count {
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:linear-gradient(135deg,var(--brand-blue),var(--green));
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:16px;
+    }
+
+    .mf-copy h2 {
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      font-size:clamp(28px,3vw,42px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      margin:0 0 14px;
+    }
+
+    .mf-copy p {
+      color:#5f6b7a;
+      font-size:15.5px;
+      line-height:1.72;
+      margin-bottom:18px;
+    }
+
+    .mf-bullets {
+      display:grid;
+      gap:8px;
+    }
+
+    .mf-bullets div {
+      display:flex;
+      gap:10px;
+      color:#334155;
+      font-size:14.5px;
+      font-weight:650;
+      line-height:1.45;
+    }
+
+    .mf-bullets div:before {
+      content:"✓";
+      color:var(--green);
+      font-weight:900;
+    }
+
+    .mf-panel-img {
+      position:relative;
+      height:345px;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 18px 44px rgba(8,36,92,.12);
+      background:linear-gradient(135deg,#e8f7ee,#eef5ff);
+    }
+
+    .mf-panel-img img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .mf-panel-img:after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent,rgba(4,14,32,.18));
+    }
+
+    .mf-floating-tag {
+      position:absolute;
+      left:22px;
+      bottom:22px;
+      z-index:2;
+      padding:12px 16px;
+      border-radius:999px;
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(14px);
+    }
+
+    .mf-faq { background:#fff; }
+
+    .faq-plus-symbol {
+      width:34px;
+      height:34px;
+      min-width:34px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(11,164,75,.08);
+      border:1px solid rgba(11,164,75,.12);
+      color:var(--green);
+      font-size:23px;
+      font-weight:700;
+      line-height:1;
+      transition:.28s ease;
+    }
+
+    .faq-item.active .faq-plus-symbol {
+      transform:rotate(45deg);
+      background:var(--green);
+      color:#fff;
+    }
+
+    @media(max-width:1024px){
+      .mf-hero-grid, .mf-panel, .mf-panel:nth-child(even) {
+        grid-template-columns:1fr;
+      }
+      .mf-panel { position:relative; top:auto; }
+      .mf-panel:nth-child(even) .mf-copy, .mf-panel:nth-child(even) .mf-panel-img { order:initial; }
+      .mf-image { height:330px; }
+      .mf-panel-img { height:300px; }
+    }
+
+    @media(max-width:720px){
+      .mf-hero { padding-top:106px; }
+      .mf-panel { padding:16px; border-radius:28px; }
+      .mf-copy { padding:18px; }
+      .mf-image { height:280px; }
+      .mf-panel-img { height:230px; border-radius:22px; }
+    }
+  </style>
+</head>
+
+<body class="mf-page">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand-logo" href="../index.html">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services">
+    </a>
+
+      <div class="menu">
 
         <a href="../index.html">Home</a>
         <div class="clean-nav-dropdown">
           <a href="#" class="clean-drop-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="clean-drop-menu"><a href="mutual-funds.html">Mutual Funds</a><a href="life-insurance.html">Life Insurance</a><a href="health-insurance.html">Health Insurance</a><a href="bonds.html">Fixed Income</a><a href="pms-aifs.html">PMS / AIFs</a><a href="real-estate.html">Real Estate</a><a href="loans.html">Loans</a></div>
+          <div class="clean-drop-menu">
+<a href="mutual-funds.html">Mutual Funds</a>
+<a href="life-insurance.html">Life Insurance</a>
+<a href="health-insurance.html">Health Insurance</a>
+<a href="bonds.html">Fixed Income</a>
+<a href="pms-aifs.html">PMS / AIFs</a>
+<a href="real-estate.html">Real Estate</a>
+<a href="loans.html">Loans</a></div>
         </div>
         <div class="clean-nav-dropdown">
           <a href="#" class="clean-drop-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="clean-drop-menu"><a href="retirement.html">Retirement Saving</a><a href="child-future.html">Saving for Child Future</a><a href="tax-saving.html">Tax Saving</a><a href="insurance.html">Protection</a><a href="wealth-solutions.html">Wealth Creation</a><a href="estate-creation.html">Estate Creation</a><a href="liquidity-creation.html">Liquidity Creation</a></div>
+          <div class="clean-drop-menu">
+<a href="retirement.html">Retirement Saving</a>
+<a href="child-future.html">Saving for Child Future</a>
+<a href="tax-saving.html">Tax Saving</a>
+<a href="insurance.html">Protection</a>
+<a href="wealth-solutions.html">Wealth Creation</a>
+<a href="estate-creation.html">Estate Creation</a>
+<a href="liquidity-creation.html">Liquidity Creation</a>
+</div>
         </div>
-        <a href="../index.html#why">Why WAY2GRO</a>
-        <a href="../index.html#team">Founders</a>
-        <a href="../index.html#faq">FAQ</a>
-        <a href="../index.html#contact">Contact</a>
-        
+      <a href="team.html">Team</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+
       </div>
-      <div class="nav-actions"><a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank"><i class="fa-solid fa-lock"></i> Client Login</a></div></div></nav><section class="story-service-hero"><div class="container story-hero-grid"><div class="story-hero-copy reveal"><div class="breadcrumb">Home / Real Estate</div><div class="section-kicker">WAY2GRO</div><h1>Property-backed wealth planning.</h1><p>Plan real estate exposure with long-term goals, liquidity and risk in mind.</p><div class="story-actions"><a class="btn btn-primary" href="../index.html#contact">Book Free Consultation</a><a class="btn btn-outline" href="../index.html#services">Explore More</a></div></div><div class="story-image-card reveal"><div class="story-image-content"><span>Coming Next</span><strong>Premium page ready</strong></div></div></div></section><footer class="premium-footer service-footer"><div class="container"><div class="footer-bottom"><span>© 2026 WAY2GRO Financial Services.</span><a href="../index.html">Back to Homepage</a></div></div></footer><script src="../assets/js/app.js"></script></body></html>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank" rel="noopener"><i class="fa-solid fa-lock"></i> Client Login</a>
+        <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+      </div>
+    </div>
+  </nav>
+
+<a class="floating-whatsapp" href="../index.html#contact" aria-label="Contact WAY2GRO on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Talk to Advisor</span>
+</a>
+
+<main>
+  <section class="mf-hero">
+    <div class="container mf-hero-grid">
+      <div>
+        <div class="mf-breadcrumb">Home / Services / Retirement Saving</div>
+        <div class="mf-kicker">Retirement Planning</div>
+        <h1>Retire with <span class="hero-highlight">confidence</span>. Not uncertainty.</h1>
+        <p>Retirement planning is about creating financial independence so you can maintain your lifestyle long after your active income stops.</p>
+        <div class="mf-actions">
+          <a class="btn btn-primary" href="../index.html#contact">Book Retirement Planning Session</a>
+          <a class="btn btn-outline" href="#service-faq">Read FAQs</a>
+        </div>
+      </div>
+
+      <div class="mf-image">
+        <img src="../assets/images/services/retirement/hero-retirement-couple.jpg" alt="Happy retired couple enjoying life">
+        <div class="mf-img-tag"><span>Income Strategy</span><strong>Plan • Invest • Review</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mf-stack-section">
+    <div class="container">
+      <div class="mf-stack">
+
+        <article class="mf-panel">
+          <div class="mf-copy">
+            <div class="mf-count">01</div>
+            <h2>Understand how much retirement corpus you need.</h2>
+            <p>Retirement is not just a number — it is a lifestyle. We help estimate the corpus required to sustain your desired lifestyle after retirement.</p>
+            <div class="mf-bullets">
+              <div>Retirement corpus estimation</div>
+              <div>Monthly expense planning</div>
+              <div>Healthcare cost consideration</div>
+              <div>Lifestyle-based calculation</div>
+            </div>
+          </div>
+          <div class="mf-panel-img">
+            <img src="../assets/images/services/retirement/retirement-corpus.jpg" alt="Retirement corpus planning">
+            <div class="mf-floating-tag">Corpus Planning</div>
+          </div>
+        </article>
+
+        <article class="mf-panel">
+          <div class="mf-copy">
+            <div class="mf-count">02</div>
+            <h2>Beat inflation before it beats your savings.</h2>
+            <p>Inflation silently reduces purchasing power. Your retirement strategy should ensure your wealth grows faster than future living costs.</p>
+            <div class="mf-bullets">
+              <div>Inflation-adjusted planning</div>
+              <div>Future expense projection</div>
+              <div>Growth-oriented allocation</div>
+              <div>Long-term compounding strategy</div>
+            </div>
+          </div>
+          <div class="mf-panel-img">
+            <img src="../assets/images/services/retirement/inflation-planning.jpg" alt="Inflation planning for retirement">
+            <div class="mf-floating-tag">Inflation Protection</div>
+          </div>
+        </article>
+
+        <article class="mf-panel">
+          <div class="mf-copy">
+            <div class="mf-count">03</div>
+            <h2>Create multiple retirement income streams.</h2>
+            <p>A strong retirement plan combines mutual funds, fixed income, pensions and other assets to create sustainable income.</p>
+            <div class="mf-bullets">
+              <div>Post-retirement income planning</div>
+              <div>SWP and cash-flow strategy</div>
+              <div>Fixed income allocation</div>
+              <div>Emergency reserve planning</div>
+            </div>
+          </div>
+          <div class="mf-panel-img">
+            <img src="../assets/images/services/retirement/retirement-income.jpg" alt="Retirement income planning">
+            <div class="mf-floating-tag">Income Strategy</div>
+          </div>
+        </article>
+
+        <article class="mf-panel">
+          <div class="mf-copy">
+            <div class="mf-count">04</div>
+            <h2>Review your retirement plan regularly.</h2>
+            <p>Life changes. Markets change. Retirement plans should evolve too. Regular reviews help keep your goals on track.</p>
+            <div class="mf-bullets">
+              <div>Periodic retirement review</div>
+              <div>Portfolio rebalancing</div>
+              <div>Goal progress tracking</div>
+              <div>Strategy updates when life changes</div>
+            </div>
+          </div>
+          <div class="mf-panel-img">
+            <img src="../assets/images/services/retirement/retirement-review.jpg" alt="Retirement plan review">
+            <div class="mf-floating-tag">Plan Review</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-premium mf-faq" id="service-faq">
+    <div class="container">
+      <div class="faq-head">
+        <div>
+          <div class="section-kicker">Retirement Planning FAQ</div>
+          <h2>Questions before you plan your <span class="hero-highlight">retirement</span>.</h2>
+        </div>
+        <p>Simple answers to help you start retirement planning with clarity.</p>
+      </div>
+
+      <div class="faq-layout">
+        <div class="faq-left">
+          <div class="faq-badge"><i class="fa-solid fa-circle-check"></i> Retirement Roadmap</div>
+          <h3>Not sure how much is enough?</h3>
+          <p>Book a planning session and we’ll help you estimate the retirement corpus based on your lifestyle and timeline.</p>
+          <a href="../index.html#contact" class="faq-cta">Book Free Consultation <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question"><span>When should I start retirement planning?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">The earlier you start, the more time compounding has to work in your favor.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>How much retirement corpus do I need?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">It depends on your lifestyle, inflation, retirement age, healthcare needs and expected longevity.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Can mutual funds help in retirement planning?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Yes. Mutual funds can be effective long-term wealth creation tools when aligned with risk and time horizon.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>What if I start late?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">A disciplined plan can still help, though contributions may need to be higher and asset allocation should be reviewed carefully.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question"><span>Should I review the plan regularly?</span><span class="faq-plus-symbol">+</span></button>
+            <div class="faq-answer">Yes. Retirement plans should be reviewed periodically as income, goals, markets and lifestyle needs change.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-box">
+        <div>
+          <span>Ready to begin?</span>
+          <h2>Let's build a retirement plan designed for the life you want.</h2>
+          <p>Get a structured retirement roadmap covering corpus planning, investment strategy and income planning.</p>
+        </div>
+        <a class="btn btn-primary" href="../index.html#contact">Book Retirement Planning Session</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var progress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', function () {
+    if (progress) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var percent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progress.style.width = percent + '%';
+    }
+  });
+
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) return;
+      var accordion = item.closest('.faq-accordion');
+      if (accordion) {
+        accordion.querySelectorAll('.faq-item').forEach(function (other) {
+          if (other !== item) other.classList.remove('active');
+        });
+      }
+      item.classList.toggle('active');
+    });
+  });
+
+  var floatingWhatsapp = document.querySelector('.floating-whatsapp');
+  var ctaTargets = document.querySelectorAll('.service-cta, footer');
+
+  if (floatingWhatsapp && ctaTargets.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      var hide = entries.some(function (entry) { return entry.isIntersecting; });
+      floatingWhatsapp.classList.toggle('is-hidden-near-cta', hide);
+    }, { threshold: 0.12 });
+
+    ctaTargets.forEach(function (target) { observer.observe(target); });
+  }
+});
+</script>
+
+<footer
+ class="premium-footer">
+  <div class="container">
+
+    <div class="footer-cta reveal">
+      <div>
+        <span>Ready to grow your wealth?</span>
+        <h2>Start your investment journey with WAY2GRO today.</h2>
+      </div>
+      <a class="btn btn-primary" href="#contact">
+        <i class="fa-solid fa-calendar-check"></i>
+        Book Free Consultation
+      </a>
+    </div>
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services logo">
+
+        <p>
+          WAY2GRO Financial Services Pvt. Ltd. helps families plan, invest, protect and grow
+          wealth through structured financial guidance and long-term advisory.
+        </p>
+
+        <div class="footer-social">
+    <a href="#" class="instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="#" class="linkedin">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="#" class="facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="#" class="youtube">
+        <i class="fab fa-youtube"></i>
+    </a>
+</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="pages/about.html">About Us</a>
+        <a href="pages/team.html">Leadership</a>
+        <a href="pages/contact.html">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="#services">Mutual Funds</a>
+        <a href="#services">SIP Planning</a>
+        <a href="#services">Insurance Planning</a>
+        <a href="#services">Fixed Income / Bonds</a>
+        <a href="#services">Retirement Planning</a>
+        <a href="#services">Portfolio Review</a>
+      </div>
+
+      <div class="footer-col footer-contact-simple">
+    <h4>Contact</h4>
+
+    <a href="mailto:info@way2gro.in">
+      <i class="fa-solid fa-envelope"></i>
+      info@way2gro.in
+    </a>
+
+    <a href="tel:+919741881122">
+      <i class="fa-solid fa-phone"></i>
+      +91 9741881122 / 9886677815
+    </a>
+
+    <a href="https://www.google.com/maps/place/VGV+Towers,+1028,+27th+A+Main+Rd,+Putlanpalya,+Jayanagara+9th+Block,+Jayanagar,+Bengaluru,+Karnataka+560041,+India/@12.9171622,77.5761449,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1508c66cb37d:0x936a72b8e42e36a5!8m2!3d12.9171419!4d77.5945991!16s%2Fg%2F11w7qvsrz6?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
+       target="_blank">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>
+        3rd Floor, 27th main, VGV Towers<br>
+        100ft ring road, Jayanagar 9th Block,
+        Bengaluru - 560041 <br>
+        Karnataka, India
+      </span>
+    </a>
+  </div>
+
+    </div>
+
+    <div class="footer-disclaimer">
+      <div>
+        <strong>Disclaimer:</strong>
+        Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.
+        The information on this website is for general awareness and should not be treated as investment advice without proper consultation.
+      </div>
+
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services Pvt. Ltd. All rights reserved.</span>
+      <span>Your Trust. Our Expertise.</span>
+    </div>
+
+  </div>
+</footer>
+  <script src="assets/js/app.js"></script>
+
+  <!-- WAY2GRO Assistant -->
+
+</body>
+</html>
