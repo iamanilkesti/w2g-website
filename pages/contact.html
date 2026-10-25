@@ -1,1 +1,911 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact | WAY2GRO Financial Services</title><meta name="description" content="Contact WAY2GRO"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/css/style.css"></head><body><div id="header-placeholder"></div><section class="page-hero"><div class="container"><span class="eyebrow" style="color:#6ee6a5">Contact</span><h1>Let’s talk about your goals.</h1><p>Start with a conversation.</p></div></section><section class="section"><div class="container contact-grid"><div class="card"><h2>Get in touch</h2><p><b>WAY2GRO Financial Services Private Limited</b></p><p>info@way2gro.in</p><p>www.way2gro.in</p><p>Jayanagar, Bengaluru, Karnataka</p></div><div class="card"><h2>Send an enquiry</h2><form class="form" onsubmit="event.preventDefault();alert('Connect this form to your email/backend before production.')"><input required placeholder="Full name"><input type="email" required placeholder="Email"><input placeholder="Phone"><select><option>Investment Planning</option><option>Insurance</option><option>Loans</option><option>Corporate Services</option><option>Real Estate</option></select><textarea placeholder="How can we help?"></textarea><button class="btn btn-primary" style="border:0">Submit Enquiry</button></form></div></div></section><section class="section soft"><div class="container"><div class="card" style="text-align:center;padding:70px"><h2>📍 Google Map</h2><p>Replace this block with your final Google Maps embed iframe.</p></div></div></section><div id="footer-placeholder"></div><script src="assets/js/app.js"></script><button class="grovy-launcher" id="grovyLauncher">🌱<br>Grovy</button><div class="grovy-chat" id="grovyChat"><div class="grovy-head"><div><b>GROVY 🌱</b><small style="display:block">Your WAY2GRO Financial Buddy</small></div><button id="grovyClose" style="border:0;background:none;color:#fff;font-size:20px">×</button></div><div class="grovy-msgs" id="grovyMsgs"></div><form class="grovy-input" id="grovyForm"><input id="grovyInput" placeholder="Type your question..."><button>➤</button></form></div><script src="assets/js/grovy.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contact Us | WAY2GRO Financial Services</title>
+
+  <link rel="icon" href="../assets/images/logo/favicon.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    .contact-page-hero{
+      padding:135px 0 80px;
+      color:#fff;
+      background:
+        radial-gradient(circle at 15% 24%,rgba(11,164,75,.22),transparent 30%),
+        radial-gradient(circle at 88% 76%,rgba(247,148,29,.10),transparent 30%),
+        linear-gradient(135deg,#061833,#08245c);
+    }
+
+    .contact-page-grid{
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:56px;
+      align-items:center;
+    }
+
+    .contact-page-hero h1{
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      font-size:clamp(42px,5vw,68px);
+      line-height:1.04;
+      letter-spacing:-.055em;
+      margin:18px 0 22px;
+    }
+
+    .contact-page-hero h1 span{color:#9effc3;}
+
+    .contact-page-hero p{
+      color:rgba(255,255,255,.76);
+      font-size:17px;
+      line-height:1.85;
+      max-width:680px;
+    }
+
+    .contact-hero-card{
+      padding:30px;
+      border-radius:34px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(18px);
+      box-shadow:0 30px 90px rgba(0,0,0,.24);
+    }
+
+    .contact-hero-item{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      padding:18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+      margin-bottom:16px;
+    }
+
+    .contact-hero-item:last-child{margin-bottom:0;}
+
+    .contact-hero-item i{
+      width:46px;
+      height:46px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:#9effc3;
+      color:#061833;
+      flex-shrink:0;
+    }
+
+    .contact-hero-item strong{
+      display:block;
+      margin-bottom:4px;
+      color:#fff;
+    }
+
+    .contact-hero-item span{
+      color:rgba(255,255,255,.68);
+      font-size:13px;
+    }
+
+    .contact-main-section{
+      padding:95px 0;
+      background:linear-gradient(180deg,#fff,#f7fbff);
+    }
+
+    .contact-main-card{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:0;
+      background:#fff;
+      border-radius:36px;
+      overflow:hidden;
+      border:1px solid rgba(30,74,168,.08);
+      box-shadow:0 28px 90px rgba(8,36,92,.13);
+    }
+
+    .contact-info-panel{
+      padding:42px;
+      background:
+        radial-gradient(circle at 20% 20%,rgba(11,164,75,.22),transparent 30%),
+        linear-gradient(135deg,#061833,#08245c);
+      color:#fff;
+    }
+
+    .contact-info-panel h2{
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      font-size:clamp(32px,4vw,46px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      margin:16px 0;
+    }
+
+    .contact-info-panel p{
+      color:rgba(255,255,255,.72);
+      line-height:1.8;
+      margin-bottom:28px;
+    }
+
+    .contact-method-list{
+      display:grid;
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .contact-method-card{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      padding:18px;
+      border-radius:22px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff;
+    }
+
+    .contact-method-card i{
+      width:46px;
+      height:46px;
+      border-radius:15px;
+      display:grid;
+      place-items:center;
+      background:#9effc3;
+      color:#061833;
+      flex-shrink:0;
+    }
+
+    .contact-method-card span{
+      display:block;
+      color:rgba(255,255,255,.64);
+      font-size:13px;
+      margin-bottom:4px;
+    }
+
+    .contact-method-card strong{
+      display:block;
+      color:#fff;
+    }
+
+    .contact-form-panel{
+      padding:42px;
+      background:linear-gradient(180deg,#fff,#f8fbff);
+    }
+
+    .contact-form-panel h3{
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      color:var(--navy);
+      font-size:34px;
+      letter-spacing:-.045em;
+      margin-bottom:10px;
+    }
+
+    .contact-form-panel > p{
+      color:#64748b;
+      line-height:1.75;
+      margin-bottom:28px;
+    }
+
+    .contact-page-form{
+      display:grid;
+      gap:18px;
+    }
+
+    .contact-form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .contact-page-form label span{
+      display:block;
+      color:#334155;
+      font-weight:900;
+      font-size:13px;
+      margin-bottom:8px;
+    }
+
+    .contact-page-form input,
+    .contact-page-form select,
+    .contact-page-form textarea{
+      width:100%;
+      border:1px solid rgba(30,74,168,.12);
+      border-radius:18px;
+      padding:15px 17px;
+      font:inherit;
+      outline:none;
+      background:#fff;
+      transition:.25s ease;
+    }
+
+    .contact-page-form textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .contact-page-form input:focus,
+    .contact-page-form select:focus,
+    .contact-page-form textarea:focus{
+      border-color:var(--green);
+      box-shadow:0 0 0 4px rgba(11,164,75,.09);
+    }
+
+    .contact-submit{
+      width:100%;
+      padding:16px 22px;
+      margin-top:4px;
+    }
+
+    .contact-note{
+      color:#64748b;
+      font-size:12px;
+      line-height:1.6;
+      text-align:center;
+    }
+
+    .contact-support-section{
+      padding:80px 0;
+      background:#fff;
+    }
+
+    .support-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+
+    .support-card{
+      padding:30px;
+      border-radius:28px;
+      background:#fff;
+      border:1px solid rgba(30,74,168,.08);
+      box-shadow:0 16px 44px rgba(8,36,92,.07);
+      transition:.3s ease;
+    }
+
+    .support-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 26px 66px rgba(8,36,92,.12);
+    }
+
+    .support-card i{
+      width:58px;
+      height:58px;
+      border-radius:18px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:linear-gradient(135deg,var(--brand-blue),var(--green));
+      font-size:22px;
+      margin-bottom:20px;
+    }
+
+    .support-card h3{
+      color:var(--navy);
+      font-size:22px;
+      margin-bottom:10px;
+    }
+
+    .support-card p{
+      color:#64748b;
+      line-height:1.7;
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .support-card a{
+      color:var(--brand-blue);
+      font-weight:900;
+      font-size:14px;
+    }
+
+    .contact-mini-faq{
+      padding:80px 0;
+      background:linear-gradient(180deg,#f7fbff,#fff);
+    }
+
+    .contact-mini-faq-box{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:28px;
+      align-items:start;
+    }
+
+    .mini-faq-left h2{
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      color:var(--navy);
+      font-size:clamp(32px,4vw,48px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      margin:12px 0;
+    }
+
+    .mini-faq-left p{
+      color:#64748b;
+      line-height:1.8;
+    }
+
+    .mini-faq-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .mini-faq-item{
+      padding:22px;
+      border-radius:22px;
+      background:#fff;
+      border:1px solid rgba(30,74,168,.08);
+      box-shadow:0 12px 34px rgba(8,36,92,.06);
+    }
+
+    .mini-faq-item h3{
+      color:var(--navy);
+      font-size:18px;
+      margin-bottom:8px;
+    }
+
+    .mini-faq-item p{
+      color:#64748b;
+      line-height:1.65;
+      font-size:14px;
+    }
+
+    @media(max-width:1024px){
+      .contact-page-grid,
+      .contact-main-card,
+      .contact-mini-faq-box{
+        grid-template-columns:1fr;
+      }
+
+      .support-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:720px){
+      .contact-page-hero{
+        padding:115px 0 65px;
+      }
+
+      .contact-form-row{
+        grid-template-columns:1fr;
+      }
+
+      .contact-info-panel,
+      .contact-form-panel{
+        padding:28px;
+      }
+    }
+    .contact-help-strip{
+  padding:50px 0 80px !important;
+  background:#fff !important;
+}
+
+.contact-help-box{
+  display:grid !important;
+  grid-template-columns:.8fr 1.2fr !important;
+  gap:30px !important;
+  align-items:center !important;
+  padding:30px !important;
+  border-radius:30px !important;
+  background:linear-gradient(180deg,#ffffff,#f8fbff) !important;
+  border:1px solid rgba(30,74,168,.08) !important;
+  box-shadow:0 18px 54px rgba(8,36,92,.08) !important;
+}
+
+.contact-help-head h2{
+  font-family:"Plus Jakarta Sans",Inter,sans-serif !important;
+  font-size:clamp(28px,3vw,38px) !important;
+  line-height:1.1 !important;
+  letter-spacing:-.04em !important;
+  color:var(--navy) !important;
+  margin-top:10px !important;
+}
+
+.contact-help-actions{
+  display:grid !important;
+  grid-template-columns:repeat(3,1fr) !important;
+  gap:14px !important;
+}
+
+.contact-help-pill{
+  display:flex !important;
+  align-items:center !important;
+  gap:12px !important;
+  padding:16px !important;
+  border-radius:20px !important;
+  background:#fff !important;
+  border:1px solid rgba(30,74,168,.08) !important;
+  color:#334155 !important;
+  box-shadow:0 10px 28px rgba(8,36,92,.06) !important;
+  transition:.25s ease !important;
+}
+
+.contact-help-pill:hover{
+  transform:translateY(-5px) !important;
+  box-shadow:0 18px 42px rgba(8,36,92,.10) !important;
+}
+
+.contact-help-pill i{
+  width:44px !important;
+  height:44px !important;
+  min-width:44px !important;
+  border-radius:15px !important;
+  display:grid !important;
+  place-items:center !important;
+  color:#fff !important;
+  background:linear-gradient(135deg,var(--brand-blue),var(--green)) !important;
+}
+
+.contact-help-pill strong{
+  display:block !important;
+  color:var(--navy) !important;
+  font-size:14px !important;
+  margin-bottom:3px !important;
+}
+
+.contact-help-pill small{
+  color:#64748b !important;
+  font-size:12px !important;
+}
+
+@media(max-width:900px){
+  .contact-help-box{
+    grid-template-columns:1fr !important;
+  }
+
+  .contact-help-actions{
+    grid-template-columns:1fr !important;
+  }
+}
+.contact-map-section{
+    padding:80px 0 100px;
+    background:#fff;
+}
+
+.contact-map-section .section-heading{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.contact-map-section .section-heading p{
+    color:#64748b;
+    margin-top:12px;
+}
+
+.map-wrapper{
+    overflow:hidden;
+    border-radius:30px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.08);
+
+    border:1px solid rgba(0,0,0,.06);
+}
+
+.map-wrapper iframe{
+    width:100%;
+    height:450px;
+    border:0;
+    display:block;
+}
+  </style>
+</head>
+
+<body>
+    <nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand-logo" href="../index.html">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services">
+    </a>
+
+      <div class="menu">
+
+        <a href="../index.html">Home</a>
+        <div class="clean-nav-dropdown">
+          <a href="#" class="clean-drop-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="clean-drop-menu">
+<a href="mutual-funds.html">Mutual Funds</a>
+<a href="life-insurance.html">Life Insurance</a>
+<a href="health-insurance.html">Health Insurance</a>
+<a href="bonds.html">Fixed Income</a>
+<a href="pms-aifs.html">PMS / AIFs</a>
+<a href="real-estate.html">Real Estate</a>
+<a href="loans.html">Loans</a></div>
+        </div>
+        <div class="clean-nav-dropdown">
+          <a href="#" class="clean-drop-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
+          <div class="clean-drop-menu">
+<a href="retirement.html">Retirement Saving</a>
+<a href="child-future.html">Saving for Child Future</a>
+<a href="tax-saving.html">Tax Saving</a>
+<a href="insurance.html">Protection</a>
+<a href="wealth-solutions.html">Wealth Creation</a>
+<a href="estate-creation.html">Estate Creation</a>
+<a href="liquidity-creation.html">Liquidity Creation</a>
+</div>
+        </div>
+      <a href="team.html">Team</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank" rel="noopener"><i class="fa-solid fa-lock"></i> Client Login</a>
+        <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+      </div>
+    </div>
+  </nav>
+
+
+<section class="contact-page-hero">
+  <div class="container contact-page-grid">
+    <div>
+      <div class="eyebrow">
+        <i class="fa-solid fa-headset"></i>
+        Contact WAY2GRO
+      </div>
+
+      <h1>
+        Let’s plan your <span>financial future</span> together.
+      </h1>
+
+      <p>
+        Whether you want to start SIPs, review your portfolio, plan insurance,
+        or build a long-term wealth roadmap — our team is here to help.
+      </p>
+    </div>
+
+    <div class="contact-hero-card">
+      <div class="contact-hero-item">
+        <i class="fa-solid fa-calendar-check"></i>
+        <div>
+          <strong>Book a Consultation</strong>
+          <span>Start with a personalized discussion.</span>
+        </div>
+      </div>
+
+      <div class="contact-hero-item">
+        <i class="fa-solid fa-chart-line"></i>
+        <div>
+          <strong>Review Your Portfolio</strong>
+          <span>Understand where you stand today.</span>
+        </div>
+      </div>
+
+      <div class="contact-hero-item">
+        <i class="fa-solid fa-shield-heart"></i>
+        <div>
+          <strong>Plan Protection</strong>
+          <span>Secure your family with right coverage.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-main-section">
+  <div class="container">
+
+    <div class="contact-main-card reveal">
+
+      <div class="contact-info-panel">
+        <div class="section-kicker">Get in Touch</div>
+
+        <h2>Speak with a WAY2GRO advisor.</h2>
+
+        <p>
+          Share your details and our team will connect with you to understand your goals
+          and guide you with suitable financial solutions.
+        </p>
+
+        <div class="contact-method-list">
+
+          <a class="contact-method-card" href="mailto:info@way2gro.in">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <span>Email Us</span>
+              <strong>info@way2gro.in</strong>
+            </div>
+          </a>
+
+          <a class="contact-method-card" href="tel:+919741881122">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <span>Call Us</span>
+              <strong>+91 9741881122 / 9886677815</strong>
+            </div>
+          </a>
+
+          <a class="contact-method-card" href="https://wa.me/919741881122" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div>
+              <span>WhatsApp</span>
+              <strong>Talk to Advisor</strong>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="contact-form-panel">
+        <h3>Request a free consultation</h3>
+        <p>Fill in the details below and our advisor will get back to you.</p>
+
+        <form class="contact-page-form">
+          <div class="contact-form-row">
+            <label>
+              <span>Full Name</span>
+              <input type="text" placeholder="Enter your name" required>
+            </label>
+
+            <label>
+              <span>Mobile Number</span>
+              <input type="tel" placeholder="Enter mobile number" required>
+            </label>
+          </div>
+
+          <div class="contact-form-row">
+            <label>
+              <span>Email</span>
+              <input type="email" placeholder="Enter email address">
+            </label>
+
+            <label>
+              <span>Service Interested In</span>
+              <select required>
+                <option value="">Select service</option>
+                <option>Mutual Funds / SIP</option>
+                <option>Insurance Planning</option>
+                <option>Retirement Planning</option>
+                <option>Portfolio Review</option>
+                <option>Fixed Income / Bonds</option>
+                <option>Other</option>
+              </select>
+            </label>
+          </div>
+
+          <label>
+            <span>Your Message</span>
+            <textarea placeholder="Tell us briefly about your financial goal"></textarea>
+          </label>
+
+          <button class="btn btn-primary contact-submit" type="submit">
+            <i class="fa-solid fa-paper-plane"></i>
+            Submit Enquiry
+          </button>
+
+          <p class="contact-note">
+            By submitting this form, you agree to be contacted by WAY2GRO Financial Services.
+          </p>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="contact-help-strip">
+  <div class="container">
+
+    <div class="contact-help-box reveal">
+
+      <div class="contact-help-head">
+        <span class="section-kicker">How can we help?</span>
+        <h2>Choose what you need help with.</h2>
+      </div>
+
+      <div class="contact-help-actions">
+
+        <a href="#contact-form" class="contact-help-pill">
+          <i class="fa-solid fa-seedling"></i>
+          <span>
+            <strong>Start Investing</strong>
+            <small>SIPs & mutual funds</small>
+          </span>
+        </a>
+
+        <a href="#contact-form" class="contact-help-pill">
+          <i class="fa-solid fa-magnifying-glass-chart"></i>
+          <span>
+            <strong>Review Portfolio</strong>
+            <small>Existing investments</small>
+          </span>
+        </a>
+
+        <a href="#contact-form" class="contact-help-pill">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>
+            <strong>Protect Family</strong>
+            <small>Insurance planning</small>
+          </span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="contact-mini-faq">
+  <div class="container contact-mini-faq-box">
+
+    <div class="mini-faq-left reveal">
+      <div class="section-kicker">Quick Answers</div>
+      <h2>Before you connect with us.</h2>
+      <p>Here are a few common questions clients usually ask before starting their financial planning journey.</p>
+    </div>
+
+    <div class="mini-faq-list reveal">
+      <div class="mini-faq-item">
+        <h3>Is the consultation free?</h3>
+        <p>Yes. We start with a basic discussion to understand your goals and current financial situation.</p>
+      </div>
+
+      <div class="mini-faq-item">
+        <h3>Can I get help with existing investments?</h3>
+        <p>Yes. We can review your existing portfolio and suggest suitable improvements.</p>
+      </div>
+
+      <div class="mini-faq-item">
+        <h3>Do you support insurance and investment planning?</h3>
+        <p>Yes. We help with mutual funds, SIPs, insurance, fixed income and long-term planning.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="contact-map-section">
+    <div class="container">
+
+        <div class="section-heading center">
+            <span class="section-kicker">Visit Us</span>
+
+            <h2>Find WAY2GRO Near You</h2>
+
+            <p>
+                We're always available online and happy to connect in person.
+            </p>
+        </div>
+
+        <div class="map-wrapper">
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.8534063537995!2d77.5945991!3d12.9171419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1508c66cb37d%3A0x936a72b8e42e36a5!2sVGV%20Towers%2C%201028%2C%2027th%20A%20Main%20Rd%2C%20Putlanpalya%2C%20Jayanagara%209th%20Block%2C%20Jayanagar%2C%20Bengaluru%2C%20Karnataka%20560041%2C%20India!5e0!3m2!1sen!2sae!4v1780839585223!5m2!1sen!2sae"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+        </div>
+
+    </div>
+</section>
+<footer
+ class="premium-footer">
+  <div class="container">
+
+    <div class="footer-cta reveal">
+      <div>
+        <span>Ready to grow your wealth?</span>
+        <h2>Start your investment journey with WAY2GRO today.</h2>
+      </div>
+      <a class="btn btn-primary" href="#contact">
+        <i class="fa-solid fa-calendar-check"></i>
+        Book Free Consultation
+      </a>
+    </div>
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services logo">
+
+        <p>
+          WAY2GRO Financial Services Pvt. Ltd. helps families plan, invest, protect and grow
+          wealth through structured financial guidance and long-term advisory.
+        </p>
+
+        <div class="footer-social">
+    <a href="#" class="instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="#" class="linkedin">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="#" class="facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="#" class="youtube">
+        <i class="fab fa-youtube"></i>
+    </a>
+</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="pages/about.html">About Us</a>
+        <a href="pages/team.html">Leadership</a>
+        <a href="pages/contact.html">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="#services">Mutual Funds</a>
+        <a href="#services">SIP Planning</a>
+        <a href="#services">Insurance Planning</a>
+        <a href="#services">Fixed Income / Bonds</a>
+        <a href="#services">Retirement Planning</a>
+        <a href="#services">Portfolio Review</a>
+      </div>
+
+      <div class="footer-col footer-contact-simple">
+    <h4>Contact</h4>
+
+    <a href="mailto:info@way2gro.in">
+      <i class="fa-solid fa-envelope"></i>
+      info@way2gro.in
+    </a>
+
+    <a href="tel:+919741881122">
+      <i class="fa-solid fa-phone"></i>
+      +91 9741881122 / 9886677815
+    </a>
+
+    <a href="https://www.google.com/maps/place/VGV+Towers,+1028,+27th+A+Main+Rd,+Putlanpalya,+Jayanagara+9th+Block,+Jayanagar,+Bengaluru,+Karnataka+560041,+India/@12.9171622,77.5761449,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1508c66cb37d:0x936a72b8e42e36a5!8m2!3d12.9171419!4d77.5945991!16s%2Fg%2F11w7qvsrz6?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
+       target="_blank">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>
+        3rd Floor, 27th main, VGV Towers<br>
+        100ft ring road, Jayanagar 9th Block,
+        Bengaluru - 560041 <br>
+        Karnataka, India
+      </span>
+    </a>
+  </div>
+
+    </div>
+
+    <div class="footer-disclaimer">
+      <div>
+        <strong>Disclaimer:</strong>
+        Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.
+        The information on this website is for general awareness and should not be treated as investment advice without proper consultation.
+      </div>
+
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services Pvt. Ltd. All rights reserved.</span>
+      <span>Your Trust. Our Expertise.</span>
+    </div>
+
+  </div>
+</footer>
+
+
+
+
+  <script src="assets/js/app.js"></script>
+
+  <!-- WAY2GRO Assistant -->
+
+
+</body>
+</html>
