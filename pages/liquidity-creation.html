@@ -1,18 +1,656 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><title>Liquidity Creation | WAY2GRO</title><link rel="stylesheet" href="../assets/css/style.css"></head><body><nav class="nav" id="navbar"><div class="container nav-inner"><a class="brand-logo" href="../index.html"><img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO"></a><div class="menu">
+
+
+    .lc-hero-grid {
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:58px;
+      align-items:center;
+    }
+
+    .lc-kicker {
+      color:var(--green);
+      font-weight:900;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-size:13px;
+      margin-bottom:18px;
+    }
+
+    .lc-breadcrumb {
+      display:inline-flex;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(30,74,168,.06);
+      color:#64748b;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .lc-hero h1 {
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      font-size:clamp(44px,5.2vw,72px);
+      line-height:1.04;
+      letter-spacing:-.06em;
+      margin:0 0 24px;
+    }
+
+    .lc-hero p {
+      color:#64748b;
+      font-size:18px;
+      line-height:1.85;
+      max-width:650px;
+      margin-bottom:30px;
+    }
+
+    .lc-actions { display:flex; gap:14px; flex-wrap:wrap; }
+
+    .lc-image {
+      position:relative;
+      border-radius:32px;
+      overflow:hidden;
+      box-shadow:0 24px 70px rgba(8,36,92,.14);
+      height:420px;
+      background:linear-gradient(135deg,#e8f7ee,#eef5ff);
+    }
+
+    .lc-image img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .lc-image:after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent,rgba(4,14,32,.36));
+    }
+
+    .lc-img-tag {
+      position:absolute;
+      left:24px;
+      bottom:24px;
+      z-index:2;
+      padding:18px 22px;
+      border-radius:22px;
+      color:#fff;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.24);
+      backdrop-filter:blur(14px);
+    }
+
+    .lc-img-tag span {
+      display:block;
+      color:#9effc3;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+
+    .lc-img-tag strong {
+      display:block;
+      font-size:24px;
+      letter-spacing:-.03em;
+    }
+
+    .lc-stack-section {
+      padding:38px 0 76px;
+      background:linear-gradient(180deg,#fff,#f7fbff);
+    }
+
+    .lc-stack { display:grid; gap:28px; }
+
+    .lc-panel {
+      position:sticky;
+      top:92px;
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:30px;
+      align-items:center;
+      min-height:420px;
+      padding:22px;
+      border-radius:34px;
+      background:rgba(255,255,255,.98);
+      border:1px solid rgba(30,74,168,.08);
+      box-shadow:0 24px 72px rgba(8,36,92,.12);
+      overflow:hidden;
+    }
+
+    .lc-panel:nth-child(1){z-index:3}
+    .lc-panel:nth-child(2){z-index:4}
+    .lc-panel:nth-child(3){z-index:5}
+    .lc-panel:nth-child(4){z-index:6}
+
+    .lc-panel:nth-child(even) { grid-template-columns:1.08fr .92fr; }
+    .lc-panel:nth-child(even) .lc-copy { order:2; }
+    .lc-panel:nth-child(even) .lc-panel-img { order:1; }
+
+    .lc-copy { padding:20px 26px; }
+
+    .lc-count {
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      background:linear-gradient(135deg,var(--brand-blue),var(--green));
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:16px;
+    }
+
+    .lc-copy h2 {
+      font-family:"Plus Jakarta Sans",Inter,sans-serif;
+      font-size:clamp(28px,3vw,42px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      margin:0 0 14px;
+    }
+
+    .lc-copy p {
+      color:#5f6b7a;
+      font-size:15.5px;
+      line-height:1.72;
+      margin-bottom:18px;
+    }
+
+    .lc-bullets {
+      display:grid;
+      gap:8px;
+    }
+
+    .lc-bullets div {
+      display:flex;
+      gap:10px;
+      color:#334155;
+      font-size:14.5px;
+      font-weight:650;
+      line-height:1.45;
+    }
+
+    .lc-bullets div:before {
+      content:"✓";
+      color:var(--green);
+      font-weight:900;
+    }
+
+    .lc-panel-img {
+      position:relative;
+      height:345px;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:0 18px 44px rgba(8,36,92,.12);
+      background:linear-gradient(135deg,#e8f7ee,#eef5ff);
+    }
+
+    .lc-panel-img img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .lc-panel-img:after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg,transparent,rgba(4,14,32,.18));
+    }
+
+    .lc-floating-tag {
+      position:absolute;
+      left:22px;
+      bottom:22px;
+      z-index:2;
+      padding:12px 16px;
+      border-radius:999px;
+      color:#fff;
+      font-size:13px;
+      font-weight:900;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(14px);
+    }
+
+    .lc-faq { background:#fff; }
+
+    .faq-plus-symbol {
+      width:34px;
+      height:34px;
+      min-width:34px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(11,164,75,.08);
+      border:1px solid rgba(11,164,75,.12);
+      color:var(--green);
+      font-size:23px;
+      font-weight:700;
+      line-height:1;
+      transition:.28s ease;
+    }
+
+    .faq-item.active .faq-plus-symbol {
+      transform:rotate(45deg);
+      background:var(--green);
+      color:#fff;
+    }
+
+    @media(max-width:1024px){
+      .lc-hero-grid, .lc-panel, .lc-panel:nth-child(even) {
+        grid-template-columns:1fr;
+      }
+      .lc-panel { position:relative; top:auto; }
+      .lc-panel:nth-child(even) .lc-copy,
+      .lc-panel:nth-child(even) .lc-panel-img { order:initial; }
+      .lc-image { height:330px; }
+      .lc-panel-img { height:300px; }
+    }
+
+    @media(max-width:720px){
+      .lc-hero { padding-top:106px; }
+      .lc-panel { padding:16px; border-radius:28px; }
+      .lc-copy { padding:18px; }
+      .lc-image { height:280px; }
+      .lc-panel-img { height:230px; border-radius:22px; }
+    }
+  </style>
+</head>
+
+<body class="lc-page">
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand-logo" href="../index.html">
+      <img src="../assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services">
+    </a>
+
+      <div class="menu">
 
         <a href="../index.html">Home</a>
         <div class="clean-nav-dropdown">
           <a href="#" class="clean-drop-trigger">Products <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="clean-drop-menu"><a href="mutual-funds.html">Mutual Funds</a><a href="life-insurance.html">Life Insurance</a><a href="health-insurance.html">Health Insurance</a><a href="bonds.html">Fixed Income</a><a href="pms-aifs.html">PMS / AIFs</a><a href="real-estate.html">Real Estate</a><a href="loans.html">Loans</a></div>
+          <div class="clean-drop-menu">
+<a href="mutual-funds.html">Mutual Funds</a>
+<a href="life-insurance.html">Life Insurance</a>
+<a href="health-insurance.html">Health Insurance</a>
+<a href="bonds.html">Fixed Income</a>
+<a href="pms-aifs.html">PMS / AIFs</a>
+<a href="real-estate.html">Real Estate</a>
+<a href="loans.html">Loans</a></div>
         </div>
         <div class="clean-nav-dropdown">
           <a href="#" class="clean-drop-trigger">Services <i class="fa-solid fa-chevron-down"></i></a>
-          <div class="clean-drop-menu"><a href="retirement.html">Retirement Saving</a><a href="child-future.html">Saving for Child Future</a><a href="tax-saving.html">Tax Saving</a><a href="insurance.html">Protection</a><a href="wealth-solutions.html">Wealth Creation</a><a href="estate-creation.html">Estate Creation</a><a href="liquidity-creation.html">Liquidity Creation</a></div>
+          <div class="clean-drop-menu">
+<a href="retirement.html">Retirement Saving</a>
+<a href="child-future.html">Saving for Child Future</a>
+<a href="tax-saving.html">Tax Saving</a>
+<a href="insurance.html">Protection</a>
+<a href="wealth-solutions.html">Wealth Creation</a>
+<a href="estate-creation.html">Estate Creation</a>
+<a href="liquidity-creation.html">Liquidity Creation</a>
+</div>
         </div>
-        <a href="../index.html#why">Why WAY2GRO</a>
-        <a href="../index.html#team">Founders</a>
-        <a href="../index.html#faq">FAQ</a>
-        <a href="../index.html#contact">Contact</a>
-        
+      <a href="team.html">Team</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+
       </div>
-      <div class="nav-actions"><a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank"><i class="fa-solid fa-lock"></i> Client Login</a></div></div></nav><section class="story-service-hero"><div class="container story-hero-grid"><div class="story-hero-copy reveal"><div class="breadcrumb">Home / Liquidity Creation</div><div class="section-kicker">WAY2GRO</div><h1>Stay ready for emergencies.</h1><p>Plan liquid funds and cash-flow buffers for unexpected situations.</p><div class="story-actions"><a class="btn btn-primary" href="../index.html#contact">Book Free Consultation</a><a class="btn btn-outline" href="../index.html#services">Explore More</a></div></div><div class="story-image-card reveal"><div class="story-image-content"><span>Coming Next</span><strong>Premium page ready</strong></div></div></div></section><footer class="premium-footer service-footer"><div class="container"><div class="footer-bottom"><span>© 2026 WAY2GRO Financial Services.</span><a href="../index.html">Back to Homepage</a></div></div></footer><script src="../assets/js/app.js"></script></body></html>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="https://way2gro.my-portfolio.co.in/app/#/login" target="_blank" rel="noopener"><i class="fa-solid fa-lock"></i> Client Login</a>
+        <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+      </div>
+    </div>
+  </nav>
+
+<a class="floating-whatsapp" href="../index.html#contact" aria-label="Contact WAY2GRO on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Talk to Advisor</span>
+</a>
+
+<main>
+  <section class="lc-hero">
+    <div class="container lc-hero-grid">
+      <div>
+        <div class="lc-breadcrumb">Home / Services / Liquidity Creation</div>
+        <div class="lc-kicker">Liquidity Creation & Cash Flow Planning</div>
+        <h1>Create financial flexibility. Keep <span class="hero-highlight">liquidity</span> within reach.</h1>
+        <p>A strong financial plan is not only about long-term returns. It should also give you access to money when life, business or opportunities demand it. We help you balance growth with practical liquidity.</p>
+        <div class="lc-actions">
+          <a class="btn btn-primary" href="../index.html#contact">Plan Your Liquidity</a>
+          <a class="btn btn-outline" href="#service-faq">Read FAQs</a>
+        </div>
+      </div>
+
+      <div class="lc-image">
+        <img src="../assets/images/services/liquidity-creation/hero-liquidity-planning.jpg" alt="Financial liquidity and cash flow planning">
+        <div class="lc-img-tag">
+          <span>Access • Stability • Flexibility</span>
+          <strong>Liquidity Creation</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lc-stack-section">
+    <div class="container">
+      <div class="lc-stack">
+
+        <article class="lc-panel">
+          <div class="lc-copy">
+            <div class="lc-count">01</div>
+            <h2>Build an emergency reserve before you need it.</h2>
+            <p>Unexpected expenses should not force you to disturb long-term investments or depend immediately on expensive borrowing. A planned emergency reserve creates a financial buffer for life's short-notice needs.</p>
+            <div class="lc-bullets">
+              <div>Emergency fund planning</div>
+              <div>Accessible short-term reserves</div>
+              <div>Household expense coverage</div>
+              <div>Protection from forced withdrawals</div>
+            </div>
+          </div>
+          <div class="lc-panel-img">
+            <img src="../assets/images/services/liquidity-creation/emergency-fund.jpg" alt="Protection from forced withdrawals and long-term investing">
+            <div class="lc-floating-tag">Emergency Reserve</div>
+          </div>
+        </article>
+
+        <article class="lc-panel">
+          <div class="lc-copy">
+            <div class="lc-count">02</div>
+            <h2>Keep short-term money aligned to short-term needs.</h2>
+            <p>Money needed in the near future should be planned differently from long-term wealth. We help you think through upcoming expenses, cash-flow requirements and suitable liquid or short-duration options based on your time horizon.</p>
+            <div class="lc-bullets">
+              <div>Near-term goal planning</div>
+              <div>Cash-flow requirement mapping</div>
+              <div>Liquid and short-duration allocation</div>
+              <div>Planned access to funds</div>
+            </div>
+          </div>
+          <div class="lc-panel-img">
+            <img src="../assets/images/services/liquidity-creation/short-term-planning.jpg" alt="Short-term savings and liquidity planning">
+            <div class="lc-floating-tag">Short-Term Planning</div>
+          </div>
+        </article>
+
+        <article class="lc-panel">
+          <div class="lc-copy">
+            <div class="lc-count">03</div>
+            <h2>Avoid locking every rupee into long-term assets.</h2>
+            <p>A portfolio can look strong on paper and still leave you short of accessible cash. Balancing property, long-term investments and readily available financial assets can improve flexibility without losing sight of wealth creation.</p>
+            <div class="lc-bullets">
+              <div>Liquidity across your portfolio</div>
+              <div>Balance between growth and access</div>
+              <div>Avoid over-concentration in illiquid assets</div>
+              <div>Periodic liquidity review</div>
+            </div>
+          </div>
+          <div class="lc-panel-img">
+            <img src="../assets/images/services/liquidity-creation/portfolio-liquidity.jpg" alt="Balancing liquid and long-term investments in a portfolio">
+            <div class="lc-floating-tag">Portfolio Liquidity</div>
+          </div>
+        </article>
+
+        <article class="lc-panel">
+          <div class="lc-copy">
+            <div class="lc-count">04</div>
+            <h2>Create liquidity for opportunities without derailing your plan.</h2>
+            <p>Sometimes liquidity is needed for a business opportunity, education expense, property purchase or another major commitment. We help you review available funds, planned redemptions and suitable financing routes so that one decision does not unnecessarily disrupt other goals.</p>
+            <div class="lc-bullets">
+              <div>Planned withdrawals and redemptions</div>
+              <div>Funding for major opportunities</div>
+              <div>Borrowing versus liquidation review</div>
+              <div>Integration with your wider financial plan</div>
+            </div>
+          </div>
+          <div class="lc-panel-img">
+            <img src="../assets/images/services/liquidity-creation/opportunity-liquidity.jpg" alt="Creating liquidity for major financial opportunities">
+            <div class="lc-floating-tag">Opportunity Funding</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-premium lc-faq" id="service-faq">
+    <div class="container">
+      <div class="faq-head">
+        <div>
+          <div class="section-kicker">Liquidity Creation FAQ</div>
+          <h2>Questions about keeping your finances <span class="hero-highlight">flexible</span>.</h2>
+        </div>
+        <p>Simple answers to help you understand emergency funds, accessible investments and cash-flow planning.</p>
+      </div>
+
+      <div class="faq-layout">
+        <div class="faq-left">
+          <div class="faq-badge"><i class="fa-solid fa-circle-check"></i> Opportunity Funding</div>
+          <h3>Not sure how much liquidity you need?</h3>
+          <p>We can help you assess upcoming expenses, emergency needs, existing investments and liabilities to build a practical liquidity strategy without losing focus on long-term goals.</p>
+          <a href="../index.html#contact" class="faq-cta">Book Free Liquidity Consultation <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item active">
+            <button class="faq-question">
+              <span>What does liquidity creation mean?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">Liquidity creation means planning enough readily accessible money or financial assets to meet emergencies, near-term goals and opportunities without unnecessarily disturbing long-term investments.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How much should I keep in an emergency fund?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">The right emergency reserve depends on your household expenses, income stability, dependants, insurance and other obligations. Many people use several months of essential expenses as a starting framework, then tailor it to their situation.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Should all my savings stay in a bank account?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">Not necessarily. Immediate cash needs may remain in bank accounts, while money not required immediately may be evaluated for suitable liquid or short-duration investment options based on risk, horizon and accessibility requirements.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Can I create liquidity without selling long-term investments?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">Depending on your circumstances, alternatives may include using existing cash reserves, planned withdrawals, maturing investments or suitable financing. The cost, tax impact and risk of each route should be assessed before acting.</div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>How can WAY2GRO help with liquidity planning?</span>
+              <span class="faq-plus-symbol">+</span>
+            </button>
+            <div class="faq-answer">WAY2GRO can help map your cash-flow needs, emergency reserve, near-term goals, existing investments and liabilities, then structure the financial-planning side of a liquidity strategy that complements your longer-term wealth plan.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <div class="service-cta-box">
+        <div>
+          <span>Need more flexibility in your financial plan?</span>
+          <h2>Let's create liquidity without losing sight of long-term wealth.</h2>
+          <p>From emergency reserves and short-term goals to planned withdrawals and opportunity funding, WAY2GRO can help you build a more flexible and resilient financial plan.</p>
+        </div>
+        <a class="btn btn-primary" href="../index.html#contact">Book Free Liquidity Consultation</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var progress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', function () {
+    if (progress) {
+      var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var percent = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progress.style.width = percent + '%';
+    }
+  });
+
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      if (!item) return;
+
+      var accordion = item.closest('.faq-accordion');
+      if (accordion) {
+        accordion.querySelectorAll('.faq-item').forEach(function (other) {
+          if (other !== item) other.classList.remove('active');
+        });
+      }
+
+      item.classList.toggle('active');
+    });
+  });
+
+  var floatingWhatsapp = document.querySelector('.floating-whatsapp');
+  var ctaTargets = document.querySelectorAll('.service-cta, footer');
+
+  if (floatingWhatsapp && ctaTargets.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      var hide = entries.some(function (entry) {
+        return entry.isIntersecting;
+      });
+
+      floatingWhatsapp.classList.toggle('is-hidden-near-cta', hide);
+    }, { threshold: 0.12 });
+
+    ctaTargets.forEach(function (target) {
+      observer.observe(target);
+    });
+  }
+});
+</script>
+
+<footer
+ class="premium-footer">
+  <div class="container">
+
+    <div class="footer-cta reveal">
+      <div>
+        <span>Ready to grow your wealth?</span>
+        <h2>Start your investment journey with WAY2GRO today.</h2>
+      </div>
+      <a class="btn btn-primary" href="#contact">
+        <i class="fa-solid fa-calendar-check"></i>
+        Book Free Consultation
+      </a>
+    </div>
+
+    <div class="footer-main">
+
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="assets/images/logo/way2gro-logo.png" alt="WAY2GRO Financial Services logo">
+
+        <p>
+          WAY2GRO Financial Services Pvt. Ltd. helps families plan, invest, protect and grow
+          wealth through structured financial guidance and long-term advisory.
+        </p>
+
+        <div class="footer-social">
+    <a href="#" class="instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="#" class="linkedin">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="#" class="facebook">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="#" class="youtube">
+        <i class="fab fa-youtube"></i>
+    </a>
+</div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="pages/about.html">About Us</a>
+        <a href="pages/team.html">Leadership</a>
+        <a href="pages/contact.html">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <a href="#services">Mutual Funds</a>
+        <a href="#services">SIP Planning</a>
+        <a href="#services">Insurance Planning</a>
+        <a href="#services">Fixed Income / Bonds</a>
+        <a href="#services">Retirement Planning</a>
+        <a href="#services">Portfolio Review</a>
+      </div>
+
+      <div class="footer-col footer-contact-simple">
+    <h4>Contact</h4>
+
+    <a href="mailto:info@way2gro.in">
+      <i class="fa-solid fa-envelope"></i>
+      info@way2gro.in
+    </a>
+
+    <a href="tel:+919741881122">
+      <i class="fa-solid fa-phone"></i>
+      +91 9741881122 / 9886677815
+    </a>
+
+    <a href="https://www.google.com/maps/place/VGV+Towers,+1028,+27th+A+Main+Rd,+Putlanpalya,+Jayanagara+9th+Block,+Jayanagar,+Bengaluru,+Karnataka+560041,+India/@12.9171622,77.5761449,15z/data=!3m1!4b1!4m6!3m5!1s0x3bae1508c66cb37d:0x936a72b8e42e36a5!8m2!3d12.9171419!4d77.5945991!16s%2Fg%2F11w7qvsrz6?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D"
+       target="_blank">
+      <i class="fa-solid fa-location-dot"></i>
+      <span>
+        3rd Floor, 27th main, VGV Towers<br>
+        100ft ring road, Jayanagar 9th Block,
+        Bengaluru - 560041 <br>
+        Karnataka, India
+      </span>
+    </a>
+  </div>
+
+    </div>
+
+    <div class="footer-disclaimer">
+      <div>
+        <strong>Disclaimer:</strong>
+        Mutual Fund investments are subject to market risks. Please read all scheme related documents carefully before investing.
+        The information on this website is for general awareness and should not be treated as investment advice without proper consultation.
+      </div>
+
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Disclaimer</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 WAY2GRO Financial Services Pvt. Ltd. All rights reserved.</span>
+      <span>Your Trust. Our Expertise.</span>
+    </div>
+
+  </div>
+</footer>
+  <script src="assets/js/app.js"></script>
+  <!-- WAY2GRO Assistant -->
+</body>
+</html>
