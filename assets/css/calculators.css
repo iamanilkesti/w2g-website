@@ -1,0 +1,416 @@
+/* ========================================
+   CALCULATOR PAGE
+======================================== */
+
+.groww-calc-page {
+    padding: 140px 0 80px;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #0ba44b;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 40px;
+}
+
+/* ========================================
+   LAYOUT
+======================================== */
+
+.calc-page-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.calculator-main-card,
+.calc-sidebar > div {
+    background: white;
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+}
+
+/* ========================================
+   TABS
+======================================== */
+
+.calc-tabs {
+    display: flex;
+    gap: 30px;
+    padding: 0px 35px 20px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.tab-btn {
+    border: none;
+    background: none;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+    padding-bottom: 12px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    color: #0ba44b;
+    border-color: #0ba44b;
+}
+
+/* ========================================
+   CALCULATOR CONTENT
+======================================== */
+
+.calculator-content {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 50px;
+    padding: 40px;
+}
+
+.input-side {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+/* ========================================
+   INPUT ROWS
+======================================== */
+
+.calc-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calc-row label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.value-box {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #f0fdf4;
+    border-radius: 12px;
+    padding: 10px 14px;
+    min-width: 120px;
+}
+
+.value-box span {
+    color: #0ba44b;
+    font-weight: 700;
+}
+
+.value-box input {
+    border: none;
+    background: transparent;
+    width: 80px;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0ba44b;
+    outline: none;
+}
+
+/* ========================================
+   RANGE SLIDER
+======================================== */
+
+input[type="range"] {
+    width: 100%;
+    appearance: none;
+    height: 6px;
+    border-radius: 10px;
+    background: #dbeafe;
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #0ba44b;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(11,164,75,.3);
+}
+
+/* ========================================
+   CHART SIDE
+======================================== */
+
+.chart-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.legend-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.legend-row span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #64748b;
+}
+
+.legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.legend-dot.invested {
+    background: #dbeafe;
+}
+
+.legend-dot.returns {
+    background: #000080;
+}
+
+.chart-wrap {
+    width: 280px;
+    height: 280px;
+    margin: auto;
+}
+
+/* ========================================
+   RESULT AREA
+======================================== */
+
+.result-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px;
+    border-top: 1px solid #edf2f7;
+}
+
+.result-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.result-lines div {
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.result-lines span {
+    color: #64748b;
+}
+
+.result-lines strong {
+    color: #0f172a;
+    font-size: 1.05rem;
+}
+
+.invest-now-btn {
+    background: #0ba44b;
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.invest-now-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.calc-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.invest-card {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.coin-icon {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 50%;
+    background: #f0fdf4;
+    color: #0ba44b;
+    font-size: 2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.invest-card h3 {
+    margin: 25px 0 10px;
+}
+
+.invest-card p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.invest-card a {
+    display: block;
+    margin-top: 25px;
+    background: #0ba44b;
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.popular-card {
+    padding: 30px;
+}
+
+.popular-card h3 {
+    margin-bottom: 20px;
+}
+
+.popular-card button {
+    width: 100%;
+    text-align: left;
+    padding: 18px 0;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #e2e8f0;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #334155;
+}
+
+.popular-card button:hover {
+    color: #0ba44b;
+}
+
+.popular-card button:disabled {
+    cursor: not-allowed;
+    color: #94a3b8;
+}
+
+/* ========================================
+   INFO SECTION
+======================================== */
+
+.calculator-info {
+    background: white;
+    margin-top: 40px;
+    padding: 40px;
+    border-radius: 24px;
+}
+
+.calculator-info h2 {
+    margin-bottom: 20px;
+}
+
+.calculator-info p {
+    color: #64748b;
+    line-height: 1.8;
+}
+.premium-footer{
+  margin-top:0 !important;
+}
+
+.groww-calc-page{
+  padding-bottom:90px;
+}
+.calc-tabs{
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.calc-tabs::-webkit-scrollbar{
+  display:none;
+}
+
+.tab-btn{
+  white-space:nowrap;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1024px) {
+
+    .calc-page-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator-content {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-wrap {
+        width: 240px;
+        height: 240px;
+    }
+
+    .result-area {
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .calculator-content {
+        padding: 25px;
+    }
+
+    .result-area {
+        padding: 25px;
+    }
+
+    .calc-tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .page-title {
+        font-size: 1.7rem;
+    }
+
+    .chart-wrap {
+        width: 220px;
+        height: 220px;
+    }
+}
